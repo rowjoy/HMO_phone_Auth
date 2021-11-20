@@ -1,62 +1,64 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:hmo/utils/colors.dart';
 
-class FromField extends StatelessWidget {
+class TextFromFields extends StatelessWidget {
+  final String? hintText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
-  final String? hintText;
-  final String? Function(String?)? validator;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
   final TextInputType? keyboardType;
-  final EdgeInsetsGeometry? margin;
-  final TextStyle? style;
-  final TextStyle? hintStyle;
-  final double? height;
-  const FromField({
+  const TextFromFields({
     Key? key,
-    this.prefixIcon,
-    this.controller,
     this.hintText,
+    this.controller,
     this.keyboardType,
+    this.prefixIcon,
     this.suffixIcon,
     this.validator,
-    this.margin,
-    this.style,
-    this.hintStyle,
-    this.height,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: height,
-        margin: margin,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: HexColor('#F6F6F6'),
-        ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 5),
-            child: TextFormField(
-              keyboardType: keyboardType,
-              style: style,
-              decoration: InputDecoration(
-                hintText: hintText,
-                hintStyle: hintStyle,
-                prefixIcon: prefixIcon,
-                suffixIcon: suffixIcon,
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                errorBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-              ),
+    return SizedBox(
+      height: 50,
+      child: TextFormField(
+        controller: controller,
+        validator: validator,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: Color(COLOR.coustomColors('F6F6F6')),
+          hintText: hintText,
+          hintStyle: TextStyle(
+            fontSize: 12,
+            color: Color(
+              COLOR.coustomColors('707070'),
             ),
+            fontWeight: FontWeight.w600,
+          ),
+          prefixIcon: prefixIcon,
+          suffixIcon: suffixIcon,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: BorderSide.none,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide.none,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide.none,
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.redAccent),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide.none,
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide.none,
           ),
         ),
       ),

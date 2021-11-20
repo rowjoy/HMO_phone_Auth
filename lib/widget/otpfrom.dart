@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:hmo/utils/colors.dart';
 
 class OtpForm extends StatelessWidget {
   final TextEditingController? controller;
@@ -20,7 +20,7 @@ class OtpForm extends StatelessWidget {
       width: 45,
       height: 45,
       decoration: BoxDecoration(
-        color: HexColor('#FFFFFF'),
+        color: Color(COLOR.coustomColors('FFFFFF')),
         borderRadius: BorderRadius.circular(5),
         boxShadow: kElevationToShadow[4],
       ),
@@ -32,9 +32,7 @@ class OtpForm extends StatelessWidget {
         keyboardType: TextInputType.number,
         obscureText: false,
         style: TextStyle(
-          fontSize: 24,
-          color: HexColor('#2F2E41'),
-        ),
+            fontSize: 24, color: Color(COLOR.coustomColors('2F2E41'))),
         decoration: InputDecoration(
           border: InputBorder.none,
           focusedBorder: InputBorder.none,

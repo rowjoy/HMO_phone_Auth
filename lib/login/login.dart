@@ -19,69 +19,77 @@ class _LoginpageState extends State<Loginpage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: SafeArea(
-          child: Container(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
                   child: AspectRatio(
-                    aspectRatio: 1.5,
+                    aspectRatio: 2,
                     child: Image.asset(
-                        'assets/images/phone illustration-01@1X.png'),
+                      'assets/images/phone illustration-01@1X.png',
+                    ),
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 1 / 7.5,
-                ),
-                Container(
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 15, right: 15),
-                        height: 185,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: kElevationToShadow[4],
-                        ),
-                        child: FromField(
-                          height: 60,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Helvetica',
-                            fontSize: 18,
+              ),
+              Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 15, right: 15),
+                      height: 150,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        // ignore: prefer_const_literals_to_create_immutables
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 8,
+                            offset: Offset(0, 3),
                           ),
-                          hintStyle: Theme.of(context).textTheme.headline6,
-                          margin: EdgeInsets.only(left: 15, right: 15),
-                          keyboardType: TextInputType.number,
-                          hintText: 'Phone',
-                          prefixIcon: ImageIcon(
-                            AssetImage('assets/icons/phone.png'),
-                            color: Colors.grey,
+                        ],
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 15),
+                          child: TextFromFields(
+                            keyboardType: TextInputType.number,
+                            hintText: "Phone",
+                            prefixIcon: Icon(
+                              Icons.phone_android,
+                              color: Colors.grey,
+                            ),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 30,
+                    ),
+                    SizedBox(
+                      height: 100,
+                    ),
+                    ButtonWidget(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        right: 15,
+                        bottom: 5,
                       ),
-                      ButtonWidget(
-                        padding:
-                            const EdgeInsets.only(left: 15, right: 15, top: 30),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Codepage()));
-                        },
-                        buttonname: 'Keep Going',
-                      ),
-                    ],
-                  ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Codepage()));
+                      },
+                      buttonname: 'Keep Going',
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

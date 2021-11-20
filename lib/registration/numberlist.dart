@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:hmo/utils/colors.dart';
 
 class Numberlist extends StatelessWidget {
   final String? name;
@@ -15,26 +15,58 @@ class Numberlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
-      margin: EdgeInsets.only(left: 20, right: 20, bottom: 10),
+      margin: EdgeInsets.only(
+        left: 15,
+        right: 15,
+        top: 8,
+      ),
+      height: 55,
       decoration: BoxDecoration(
-        color: HexColor('#F6F6F6'),
-        boxShadow: kElevationToShadow[4],
+        color: Color(COLOR.coustomColors('F6F6F6')),
         borderRadius: BorderRadius.circular(5),
       ),
       child: Center(
         child: ListTile(
-          contentPadding: EdgeInsets.only(bottom: 10, left: 25),
-          tileColor: Colors.white,
-          leading: Icon(
-            Icons.person,
-            size: 37,
+          leading: Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: CircleAvatar(
+              backgroundColor: Color(COLOR.coustomColors('F6F6F6')),
+              child: Icon(
+                Icons.person,
+                color: Colors.grey,
+              ),
+            ),
           ),
-          title: Text(
-            name!,
-            style: Theme.of(context).textTheme.headline6,
+          title: Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name!,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color(
+                      COLOR.coustomColors('707070'),
+                    ),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  number!,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Color(
+                      COLOR.coustomColors('747474'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          subtitle: Text(number!),
         ),
       ),
     );

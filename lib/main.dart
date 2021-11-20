@@ -1,13 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+
 import 'package:hmo/login/code.dart';
 import 'package:hmo/login/login.dart';
 import 'package:hmo/registration/contacts.dart';
 import 'package:hmo/registration/location.dart';
 import 'package:hmo/registration/registration.dart';
 import 'package:hmo/splash/splash_screen.dart';
+import 'package:hmo/view/contact/contact.dart';
+import 'package:hmo/view/emergancy/emargancy.dart';
+import 'package:hmo/view/home/home.dart';
+import 'package:hmo/view/home/homescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,39 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        textTheme: TextTheme(
-          headline4: TextStyle(
-            fontFamily: 'Helvetica',
-            color: Colors.grey,
-            fontWeight: FontWeight.normal,
-            fontSize: 18,
-          ),
-          headline5: TextStyle(
-            fontFamily: 'Helvetica',
-            color: Colors.grey,
-            fontWeight: FontWeight.normal,
-            fontSize: 18,
-          ),
-          headline6: TextStyle(
-            fontFamily: 'Helvetica',
-            color: Colors.grey,
-            fontWeight: FontWeight.normal,
-            fontSize: 18,
-          ),
-          bodyText1: TextStyle(
-            fontFamily: 'Helvetica',
-            color: Colors.white,
-            fontWeight: FontWeight.normal,
-            fontSize: 17,
-          ),
-          bodyText2: TextStyle(
-            color: HexColor('#707070'),
-            fontFamily: 'Helvetica',
-            fontSize: 14,
-          ),
-        ),
-      ),
+      theme: ThemeData(),
       initialRoute: SplashScreen.path,
       routes: {
         SplashScreen.path: (context) => SplashScreen(),
@@ -63,6 +35,10 @@ class MyApp extends StatelessWidget {
         Registration.path: (context) => Registration(),
         ContactsNumber.path: (context) => ContactsNumber(),
         Locationpage.path: (context) => Locationpage(),
+        Homescreen.path: (context) => Homescreen(),
+        Homepage.path: (context) => Homepage(),
+        Contactpage.path: (context) => Contactpage(),
+        Emargancypage.path: (context) => Emargancypage(),
       },
     );
   }

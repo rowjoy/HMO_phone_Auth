@@ -1,7 +1,8 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:hmo/registration/registration.dart';
+import 'package:hmo/utils/colors.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/otpfrom.dart';
 
@@ -55,128 +56,163 @@ class _CodepageState extends State<Codepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Text('Submit OTP'),
-        titleTextStyle: Theme.of(context).textTheme.headline4,
-        centerTitle: true,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            )),
-      ),
       body: SingleChildScrollView(
-        child: SafeArea(
-          child: Container(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 15, right: 15),
-                  child: AspectRatio(
-                    aspectRatio: 1.6,
-                    child: Image.asset('assets/images/Code.png'),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 30),
+                child: ListTile(
+                  leading: Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 1 / 8.5,
-                ),
-                Container(
-                  height: 185,
-                  width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.only(left: 15, right: 15),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: kElevationToShadow[4],
-                  ),
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Text(
-                            'Enter the OTP we’ve sent to your phone',
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.headline5,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 8, right: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              OtpForm(
-                                controller: pin1,
-                                onChanged: (value) {
-                                  nextfiled(value, pin2FocusNode);
-                                },
-                              ),
-                              OtpForm(
-                                controller: pin2,
-                                focusNode: pin2FocusNode,
-                                onChanged: (value) {
-                                  nextfiled(value, pin3FocusNode);
-                                },
-                              ),
-                              OtpForm(
-                                controller: pin3,
-                                focusNode: pin3FocusNode,
-                                onChanged: (value) {
-                                  nextfiled(value, pin4FocusNode);
-                                },
-                              ),
-                              OtpForm(
-                                controller: pin4,
-                                focusNode: pin4FocusNode,
-                                onChanged: (value) {
-                                  nextfiled(value, pin5FocusNode);
-                                },
-                              ),
-                              OtpForm(
-                                controller: pin5,
-                                focusNode: pin5FocusNode,
-                                onChanged: (value) {
-                                  nextfiled(value, pin6FocusNode);
-                                },
-                              ),
-                              OtpForm(
-                                controller: pin6,
-                                focusNode: pin6FocusNode,
-                                onChanged: (value) {
-                                  pin6FocusNode.unfocus();
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                  title: Text(
+                    'Submit OTP',
+                    style: TextStyle(
+                      color: Color(
+                        COLOR.coustomColors('#242424'),
+                      ),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 24,
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(left: 15, right: 15),
+                  child: AspectRatio(
+                    aspectRatio: 2,
+                    child: Image.asset(
+                      'assets/images/Code.png',
+                    ),
+                  ),
                 ),
-                ButtonWidget(
-                  padding: const EdgeInsets.only(left: 15, right: 15, top: 30),
-                  buttonname: 'Submit',
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Registration()));
-                  },
+              ),
+              Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: 150,
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.only(left: 15, right: 15),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 8,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 45, right: 45),
+                              child: Text(
+                                'Enter the OTP we’ve sent to your phone',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(
+                                    COLOR.coustomColors('#707070'),
+                                  ),
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 8, right: 8),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                // ignore: prefer_const_literals_to_create_immutables
+                                children: [
+                                  OtpForm(
+                                    controller: pin1,
+                                    onChanged: (value) {
+                                      nextfiled(value, pin2FocusNode);
+                                    },
+                                  ),
+                                  OtpForm(
+                                    controller: pin2,
+                                    focusNode: pin2FocusNode,
+                                    onChanged: (value) {
+                                      nextfiled(value, pin3FocusNode);
+                                    },
+                                  ),
+                                  OtpForm(
+                                    controller: pin3,
+                                    focusNode: pin3FocusNode,
+                                    onChanged: (value) {
+                                      nextfiled(value, pin4FocusNode);
+                                    },
+                                  ),
+                                  OtpForm(
+                                    controller: pin4,
+                                    focusNode: pin4FocusNode,
+                                    onChanged: (value) {
+                                      nextfiled(value, pin5FocusNode);
+                                    },
+                                  ),
+                                  OtpForm(
+                                    controller: pin5,
+                                    focusNode: pin5FocusNode,
+                                    onChanged: (value) {
+                                      nextfiled(value, pin6FocusNode);
+                                    },
+                                  ),
+                                  OtpForm(
+                                    controller: pin6,
+                                    focusNode: pin6FocusNode,
+                                    onChanged: (value) {
+                                      pin6FocusNode.unfocus();
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 100,
+                    ),
+                    ButtonWidget(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        right: 15,
+                        bottom: 5,
+                      ),
+                      buttonname: 'Submit',
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Registration()));
+                      },
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
