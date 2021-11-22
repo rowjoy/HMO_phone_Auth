@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/view/home/screen_section/activebutton.dart';
+import 'package:hmo/view/home/screen_section/bloodrequest.dart';
+import 'package:hmo/view/home/screen_section/helpmeout.dart';
+import 'package:hmo/view/home/screen_section/plasamarequest.dart';
 import 'package:hmo/view/home/screen_section/safezone.dart';
 
 class Homepage extends StatefulWidget {
@@ -44,80 +47,142 @@ class _HomepageState extends State<Homepage> {
           ),
         ],
       ),
-      body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.only(top: 10),
-          child: Column(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    if (isactived == false) {
-                      isactived = true;
-                    } else {
-                      isactived = false;
-                    }
-                  });
-                },
-                child: TabButton.tabButton(),
-              ),
-              // Text part
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Text(
-                      'Tap & Hold to active HMO',
-                      style: TextStyle(
-                        color: Color(
-                          COLOR.coustomColors('707070'),
-                        ),
-                        fontSize: 12,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    ImageIcon(
-                      AssetImage(
-                        'assets/icons/Group 445@1X.png',
-                      ),
-                      size: 10,
-                    ),
-                  ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            margin: EdgeInsets.only(top: 10),
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (isactived == false) {
+                        isactived = true;
+                      } else {
+                        isactived = false;
+                      }
+                    });
+                  },
+                  child: TabButton.tabButton(),
                 ),
-              ),
-              Safezone(),
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Text(
-                      'Tap any feature to get help',
-                      style: TextStyle(
-                        color: Color(
-                          COLOR.coustomColors('707070'),
+                // Text part
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Text(
+                        'Tap & Hold to active HMO',
+                        style: TextStyle(
+                          color: Color(
+                            COLOR.coustomColors('707070'),
+                          ),
+                          fontSize: 12,
                         ),
-                        fontSize: 12,
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    ImageIcon(
-                      AssetImage(
-                        'assets/icons/Group 445@1X.png',
+                      SizedBox(
+                        width: 10,
                       ),
-                      size: 10,
-                    ),
-                  ],
+                      ImageIcon(
+                        AssetImage(
+                          'assets/icons/Group 445@1X.png',
+                        ),
+                        size: 10,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Safezone(),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Text(
+                        'Tap any feature to get help',
+                        style: TextStyle(
+                          color: Color(
+                            COLOR.coustomColors('707070'),
+                          ),
+                          fontSize: 12,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ImageIcon(
+                        AssetImage(
+                          'assets/icons/Group 445@1X.png',
+                        ),
+                        size: 10,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Helpmeout(),
+                Container(
+                  margin: EdgeInsets.only(bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Text(
+                        'Tap the card to see details',
+                        style: TextStyle(
+                          color: Color(
+                            COLOR.coustomColors('707070'),
+                          ),
+                          fontSize: 12,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ImageIcon(
+                        AssetImage(
+                          'assets/icons/Group 445@1X.png',
+                        ),
+                        size: 10,
+                      ),
+                    ],
+                  ),
+                ),
+                BloodRequest(),
+                Container(
+                  margin: EdgeInsets.only(bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Text(
+                        'Tap the card to see details',
+                        style: TextStyle(
+                          color: Color(
+                            COLOR.coustomColors('707070'),
+                          ),
+                          fontSize: 12,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ImageIcon(
+                        AssetImage(
+                          'assets/icons/Group 445@1X.png',
+                        ),
+                        size: 10,
+                      ),
+                    ],
+                  ),
+                ),
+                PlasamaRequest(),
+              ],
+            ),
           ),
         ),
       ),

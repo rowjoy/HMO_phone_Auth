@@ -70,7 +70,7 @@ class _HomescreenState extends State<Homescreen> {
         });
       },
       child: Container(
-        height: 60,
+        height: 56,
         width: MediaQuery.of(context).size.width * 1 / 3,
         decoration: BoxDecoration(
           color: index == indexnumber

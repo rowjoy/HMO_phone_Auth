@@ -39,6 +39,14 @@ class TabButton {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(40),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.white.withOpacity(0.5),
+                  blurRadius: 4,
+                  spreadRadius: 4,
+                  offset: Offset(0, 0), // Shadow position
+                ),
+              ],
             ),
             child: Center(
               child: AspectRatio(

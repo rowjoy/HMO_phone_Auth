@@ -83,7 +83,7 @@ class _RegistrationState extends State<Registration> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  boxShadow: kElevationToShadow[4],
+                  boxShadow: kElevationToShadow[2],
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Container(

@@ -22,7 +22,7 @@ class OtpForm extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color(COLOR.coustomColors('FFFFFF')),
         borderRadius: BorderRadius.circular(5),
-        boxShadow: kElevationToShadow[4],
+        boxShadow: kElevationToShadow[1],
       ),
       child: TextFormField(
         controller: controller,

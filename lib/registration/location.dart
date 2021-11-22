@@ -80,14 +80,7 @@ class _LocationpageState extends State<Locationpage> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 8,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
+                        boxShadow: kElevationToShadow[2],
                       ),
                       child: Center(
                         child: Column(

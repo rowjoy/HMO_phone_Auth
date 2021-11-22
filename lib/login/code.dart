@@ -109,17 +109,9 @@ class _CodepageState extends State<Codepage> {
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.only(left: 15, right: 15),
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 8,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: kElevationToShadow[3]),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

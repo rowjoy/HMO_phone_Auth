@@ -45,15 +45,7 @@ class _LoginpageState extends State<Loginpage> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15),
-                        // ignore: prefer_const_literals_to_create_immutables
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 8,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
+                        boxShadow: kElevationToShadow[1],
                       ),
                       child: Center(
                         child: Padding(

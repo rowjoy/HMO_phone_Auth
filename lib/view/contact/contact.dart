@@ -13,7 +13,7 @@ class Contactpage extends StatefulWidget {
 }
 
 class _ContactpageState extends State<Contactpage> {
-  bool selected = false;
+  bool resknumber = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,15 +59,9 @@ class _ContactpageState extends State<Contactpage> {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
-                  selected: selected,
+                  selected: resknumber,
                   onLongPress: () {
-                    setState(() {
-                      if (selected == false) {
-                        selected = true;
-                      } else if (selected == true) {
-                        selected = false;
-                      }
-                    });
+                    setState(() {});
                   },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
