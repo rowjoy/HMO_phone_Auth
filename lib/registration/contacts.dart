@@ -19,7 +19,7 @@ class ContactsNumber extends StatefulWidget {
 
 class _ContactsNumberState extends State<ContactsNumber> {
   bool checkboxs = false;
-
+  TextEditingController controllerserch = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,8 +194,12 @@ class _ContactsNumberState extends State<ContactsNumber> {
                       padding:
                           const EdgeInsets.only(top: 5, left: 13, right: 13),
                       child: TextFromFields(
+                        controller: controllerserch,
+                        hintText: 'Search number',
                         prefixIcon: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            controllerserch.clear();
+                          },
                           icon: Icon(
                             Icons.close,
                             color: Colors.grey,
