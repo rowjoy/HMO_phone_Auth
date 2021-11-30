@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/view/home/drawer/drawer.dart';
 import 'package:hmo/view/home/screen_section/activebutton.dart';
 import 'package:hmo/view/home/screen_section/bloodrequest.dart';
 import 'package:hmo/view/home/screen_section/helpmeout.dart';
@@ -21,7 +22,9 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: HomeDrawer(),
+      ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,

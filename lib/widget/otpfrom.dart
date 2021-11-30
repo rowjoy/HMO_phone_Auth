@@ -1,17 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hmo/utils/colors.dart';
 
 class OtpForm extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String)? onChanged;
   final FocusNode? focusNode;
+  final String? Function(String?)? validator;
   const OtpForm({
     Key? key,
     this.controller,
     this.focusNode,
     this.onChanged,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -25,6 +28,10 @@ class OtpForm extends StatelessWidget {
         boxShadow: kElevationToShadow[1],
       ),
       child: TextFormField(
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(1),
+        ],
+        validator: validator,
         controller: controller,
         focusNode: focusNode,
         autofocus: true,

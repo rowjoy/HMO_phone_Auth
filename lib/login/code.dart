@@ -15,6 +15,7 @@ class Codepage extends StatefulWidget {
 }
 
 class _CodepageState extends State<Codepage> {
+  var fromkey = GlobalKey<FormState>();
   TextEditingController pin1 = TextEditingController();
   TextEditingController pin2 = TextEditingController();
   TextEditingController pin3 = TextEditingController();
@@ -131,53 +132,55 @@ class _CodepageState extends State<Codepage> {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: 8, right: 8),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                // ignore: prefer_const_literals_to_create_immutables
-                                children: [
-                                  OtpForm(
-                                    controller: pin1,
-                                    onChanged: (value) {
-                                      nextfiled(value, pin2FocusNode);
-                                    },
-                                  ),
-                                  OtpForm(
-                                    controller: pin2,
-                                    focusNode: pin2FocusNode,
-                                    onChanged: (value) {
-                                      nextfiled(value, pin3FocusNode);
-                                    },
-                                  ),
-                                  OtpForm(
-                                    controller: pin3,
-                                    focusNode: pin3FocusNode,
-                                    onChanged: (value) {
-                                      nextfiled(value, pin4FocusNode);
-                                    },
-                                  ),
-                                  OtpForm(
-                                    controller: pin4,
-                                    focusNode: pin4FocusNode,
-                                    onChanged: (value) {
-                                      nextfiled(value, pin5FocusNode);
-                                    },
-                                  ),
-                                  OtpForm(
-                                    controller: pin5,
-                                    focusNode: pin5FocusNode,
-                                    onChanged: (value) {
-                                      nextfiled(value, pin6FocusNode);
-                                    },
-                                  ),
-                                  OtpForm(
-                                    controller: pin6,
-                                    focusNode: pin6FocusNode,
-                                    onChanged: (value) {
-                                      pin6FocusNode.unfocus();
-                                    },
-                                  ),
-                                ],
+                              child: Form(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    OtpForm(
+                                      controller: pin1,
+                                      onChanged: (value) {
+                                        nextfiled(value, pin2FocusNode);
+                                      },
+                                    ),
+                                    OtpForm(
+                                      controller: pin2,
+                                      focusNode: pin2FocusNode,
+                                      onChanged: (value) {
+                                        nextfiled(value, pin3FocusNode);
+                                      },
+                                    ),
+                                    OtpForm(
+                                      controller: pin3,
+                                      focusNode: pin3FocusNode,
+                                      onChanged: (value) {
+                                        nextfiled(value, pin4FocusNode);
+                                      },
+                                    ),
+                                    OtpForm(
+                                      controller: pin4,
+                                      focusNode: pin4FocusNode,
+                                      onChanged: (value) {
+                                        nextfiled(value, pin5FocusNode);
+                                      },
+                                    ),
+                                    OtpForm(
+                                      controller: pin5,
+                                      focusNode: pin5FocusNode,
+                                      onChanged: (value) {
+                                        nextfiled(value, pin6FocusNode);
+                                      },
+                                    ),
+                                    OtpForm(
+                                      controller: pin6,
+                                      focusNode: pin6FocusNode,
+                                      onChanged: (value) {
+                                        pin6FocusNode.unfocus();
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],

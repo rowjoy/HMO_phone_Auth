@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hmo/login/code.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/from_field.dart';
@@ -14,6 +15,9 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
+  var fromkey = GlobalKey<FormState>();
+  TextEditingController phonecontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +54,26 @@ class _LoginpageState extends State<Loginpage> {
                       child: Center(
                         child: Padding(
                           padding: const EdgeInsets.only(left: 15, right: 15),
-                          child: TextFromFields(
-                            keyboardType: TextInputType.number,
-                            hintText: "Phone",
-                            prefixIcon: Icon(
-                              Icons.phone_android,
-                              color: Colors.grey,
+                          child: Form(
+                            key: fromkey,
+                            child: TextFromFields(
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(11),
+                              ],
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return ('Please enter your number');
+                                } else if (value.length != 11) {
+                                  return ('Please Enter right number');
+                                }
+                              },
+                              controller: phonecontroller,
+                              keyboardType: TextInputType.number,
+                              hintText: "Phone",
+                              prefixIcon: Icon(
+                                Icons.phone_android,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
                         ),
@@ -71,10 +89,13 @@ class _LoginpageState extends State<Loginpage> {
                         bottom: 5,
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Codepage()));
+                        if (fromkey.currentState!.validate()) {
+                          fromkey.currentState!.save();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Codepage()));
+                        }
                       },
                       buttonname: 'Keep Going',
                     ),

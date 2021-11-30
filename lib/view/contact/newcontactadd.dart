@@ -1,6 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/from_field.dart';
@@ -76,6 +77,9 @@ class _NewContactState extends State<NewContact> {
                                     height: 5,
                                   ),
                                   TextFromFields(
+                                    inputFormatters: [
+                                      LengthLimitingTextInputFormatter(20),
+                                    ],
                                     hintText: 'Contact name',
                                   ),
                                 ],
@@ -100,6 +104,10 @@ class _NewContactState extends State<NewContact> {
                                     height: 5,
                                   ),
                                   TextFromFields(
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: [
+                                      LengthLimitingTextInputFormatter(11),
+                                    ],
                                     hintText: 'Contact number',
                                   ),
                                 ],
@@ -124,6 +132,9 @@ class _NewContactState extends State<NewContact> {
                                     height: 5,
                                   ),
                                   TextFromFields(
+                                    inputFormatters: [
+                                      LengthLimitingTextInputFormatter(25),
+                                    ],
                                     hintText: 'Member address',
                                   ),
                                 ],
