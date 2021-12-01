@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hmo/registration/chousechip.dart';
 import 'package:hmo/registration/contacts.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/from_field.dart';
 import 'package:image_picker/image_picker.dart';
@@ -44,32 +45,8 @@ class _RegistrationState extends State<Registration> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 30),
-                child: ListTile(
-                  leading: Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  title: Text(
-                    'Basic Information',
-                    style: TextStyle(
-                      color: Color(
-                        COLOR.coustomColors('#242424'),
-                      ),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+              Appbar(
+                text: 'Basic Information',
               ),
               Expanded(
                 child: AspectRatio(

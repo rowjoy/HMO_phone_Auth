@@ -10,6 +10,7 @@ import 'package:hmo/registration/registration.dart';
 import 'package:hmo/splash/splash_screen.dart';
 import 'package:hmo/view/contact/contact.dart';
 import 'package:hmo/view/emergancy/emargancy.dart';
+import 'package:hmo/view/home/drawer/components/profile.dart';
 import 'package:hmo/view/home/home.dart';
 import 'package:hmo/view/home/homescreen.dart';
 
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         Homepage.path: (context) => Homepage(),
         Contactpage.path: (context) => Contactpage(),
         Emargancypage.path: (context) => Emargancypage(),
+        Profilepage.path: (context) => Profilepage(),
       },
     );
   }

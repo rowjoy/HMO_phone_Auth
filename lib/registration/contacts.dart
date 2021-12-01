@@ -6,6 +6,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:hmo/registration/location.dart';
 import 'package:hmo/registration/numberlist.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/from_field.dart';
 
@@ -30,32 +31,8 @@ class _ContactsNumberState extends State<ContactsNumber> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 30),
-                child: ListTile(
-                  leading: Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  title: Text(
-                    'Trusted Contacts',
-                    style: TextStyle(
-                      color: Color(
-                        COLOR.coustomColors('#242424'),
-                      ),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+              Appbar(
+                text: 'Trusted Contacts',
               ),
               CarouselSlider(
                 // ignore: prefer_const_literals_to_create_immutables

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/from_field.dart';
 
@@ -24,31 +25,10 @@ class _NewContactState extends State<NewContact> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 30),
-                child: ListTile(
-                  leading: Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  title: Text(
-                    'Add New Contact',
-                    style: TextStyle(
-                      color: Color(
-                        COLOR.coustomColors('#242424'),
-                      ),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: Appbar(
+                  text: 'Add New Contact',
                 ),
               ),
               Expanded(
