@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
-import 'package:hmo/view/home/drawer/components/profile/userinfofrield.dart';
-import 'package:hmo/view/home/drawer/components/safezone/addsafezon.dart';
-import 'package:hmo/view/home/drawer/components/safezone/locationinfo.dart';
+import 'package:hmo/widget/drawer/components/safezone/addsafezon.dart';
+import 'package:hmo/widget/drawer/components/safezone/locationinfo.dart';
+import 'package:hmo/widget/drawer/drawer.dart';
 
 class Sefezons extends StatefulWidget {
   const Sefezons({Key? key}) : super(key: key);
@@ -26,7 +26,9 @@ class _SefezonState extends State<Sefezons> {
         child: Icon(Icons.add),
       ),
       backgroundColor: Colors.white,
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: HomeDrawer(),
+      ),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,

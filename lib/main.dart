@@ -10,9 +10,9 @@ import 'package:hmo/registration/registration.dart';
 import 'package:hmo/splash/splash_screen.dart';
 import 'package:hmo/view/contact/contact.dart';
 import 'package:hmo/view/emergancy/emargancy.dart';
-import 'package:hmo/view/home/drawer/components/profile/profile.dart';
 import 'package:hmo/view/home/home.dart';
 import 'package:hmo/view/home/homescreen.dart';
+import 'package:hmo/widget/drawer/components/profile/profile.dart';
 
 void main() {
   runApp(const MyApp());

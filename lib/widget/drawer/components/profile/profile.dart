@@ -4,9 +4,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
-import 'package:hmo/view/home/drawer/components/profile/userdataedit.dart';
-import 'package:hmo/view/home/drawer/components/profile/userinfofrield.dart';
 import 'package:hmo/widget/appber.dart';
+import 'package:hmo/widget/drawer/components/profile/userdataedit.dart';
+import 'package:hmo/widget/drawer/components/profile/userinfofrield.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Profilepage extends StatefulWidget {

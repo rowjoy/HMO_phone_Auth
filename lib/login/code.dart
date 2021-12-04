@@ -110,6 +110,7 @@ class _CodepageState extends State<Codepage> {
                             Container(
                               margin: EdgeInsets.only(left: 8, right: 8),
                               child: Form(
+                                key: fromkey,
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,

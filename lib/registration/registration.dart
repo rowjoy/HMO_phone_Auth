@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hmo/registration/chousechip.dart';
 import 'package:hmo/registration/contacts.dart';
 import 'package:hmo/utils/colors.dart';
@@ -20,8 +21,10 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
+  var formkey = GlobalKey<FormState>();
   String? images;
   TextEditingController datecontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
   TextEditingController imagename = TextEditingController();
   Future selecttime(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -56,7 +59,7 @@ class _RegistrationState extends State<Registration> {
               ),
               Container(
                 margin: EdgeInsets.only(left: 10, right: 10, top: 10),
-                height: 315,
+                height: MediaQuery.of(context).size.height * 1 / 2.2,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -67,6 +70,7 @@ class _RegistrationState extends State<Registration> {
                   margin:
                       EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
                   child: Form(
+                    key: formkey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,7 +92,16 @@ class _RegistrationState extends State<Registration> {
                                 ),
                               ),
                               TextFromFields(
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(25),
+                                ],
                                 hintText: 'Full name',
+                                controller: namecontroller,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter your name';
+                                  }
+                                },
                               ),
                             ],
                           ),
@@ -110,7 +123,16 @@ class _RegistrationState extends State<Registration> {
                                 ),
                               ),
                               TextFromFields(
+                                keyboardType: TextInputType.number,
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(9),
+                                ],
                                 controller: datecontroller,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter your Date of Birth';
+                                  }
+                                },
                                 hintText: 'Date of Birth',
                                 suffixIcon: IconButton(
                                     onPressed: () {
@@ -231,10 +253,13 @@ class _RegistrationState extends State<Registration> {
                 ),
                 buttonname: 'Continue',
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ContactsNumber()));
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ContactsNumber()));
+                  }
                 },
               )
             ],

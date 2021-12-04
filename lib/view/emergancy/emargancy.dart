@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/view/emergancy/components/division.dart';
 import 'package:hmo/view/emergancy/components/service.dart';
+import 'package:hmo/widget/drawer/drawer.dart';
 
 class Emargancypage extends StatefulWidget {
   static const String path = "Emargancypage";
@@ -85,7 +86,9 @@ class _EmargancypageState extends State<Emargancypage> {
         child: Icon(Icons.phone),
       ),
       backgroundColor: Colors.white,
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: HomeDrawer(),
+      ),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,

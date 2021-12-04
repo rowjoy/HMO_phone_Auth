@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
-import 'package:hmo/view/home/drawer/components/profile/profile.dart';
-import 'package:hmo/view/home/drawer/components/safezone/safezons.dart';
-import 'package:hmo/view/home/drawer/listlile.dart';
+import 'package:hmo/widget/drawer/components/profile/profile.dart';
+import 'package:hmo/widget/drawer/components/safezone/safezons.dart';
+import 'package:hmo/widget/drawer/listlile.dart';
 
 class HomeDrawer extends StatefulWidget {
   const HomeDrawer({Key? key}) : super(key: key);

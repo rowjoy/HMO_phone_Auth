@@ -31,7 +31,9 @@ class TextFromFields extends StatelessWidget {
         validator: validator,
         inputFormatters: inputFormatters,
         keyboardType: keyboardType,
+        
         decoration: InputDecoration(
+         
           contentPadding: EdgeInsets.only(top: 4, bottom: 4, left: 4),
           filled: true,
           fillColor: Color(COLOR.coustomColors('F6F6F6')),
