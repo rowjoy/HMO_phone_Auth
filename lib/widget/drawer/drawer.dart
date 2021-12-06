@@ -7,6 +7,7 @@ import 'package:hmo/widget/drawer/components/safezone/safezons.dart';
 import 'package:hmo/widget/drawer/listlile.dart';
 
 class HomeDrawer extends StatefulWidget {
+  static const String path = "Drawerpage";
   const HomeDrawer({Key? key}) : super(key: key);
 
   @override

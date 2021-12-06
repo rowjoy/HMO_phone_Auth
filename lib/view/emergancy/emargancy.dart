@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_typing_uninitialized_variables, unused_local_variable, sized_box_for_whitespace
 
+import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
+import 'package:hmo/registration/numberlist.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/view/emergancy/components/division.dart';
 import 'package:hmo/view/emergancy/components/service.dart';
@@ -15,8 +17,45 @@ class Emargancypage extends StatefulWidget {
 }
 
 class _EmargancypageState extends State<Emargancypage> {
+  TextEditingController controllerserch = TextEditingController();
+
+  List<Contact> contacts = [];
+  List<Contact> searchcontacts = [];
+  Future getcontact() async {
+    List<Contact> _contacts =
+        await ContactsService.getContacts(withThumbnails: false);
+    setState(() {
+      contacts = _contacts;
+    });
+  }
+
+  Future searchfilder() async {
+    List<Contact> _contact = [];
+    _contact.addAll(contacts);
+    if (controllerserch.text.isNotEmpty) {
+      _contact.retainWhere((element) {
+        String seachtrem = controllerserch.text.toLowerCase();
+        String dysplayname = element.displayName!.toLowerCase();
+        return dysplayname.contains(seachtrem);
+      });
+      setState(() {
+        searchcontacts = _contact;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getcontact();
+    controllerserch.addListener(() {
+      searchfilder();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    bool issearch = controllerserch.text.isNotEmpty;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(COLOR.coustomColors('00B27A')),
@@ -189,6 +228,7 @@ class _EmargancypageState extends State<Emargancypage> {
                               child: SizedBox(
                                 height: 50,
                                 child: TextFormField(
+                                  controller: controllerserch,
                                   style: TextStyle(
                                     color:
                                         Color(COLOR.coustomColors('#747474')),
@@ -234,54 +274,16 @@ class _EmargancypageState extends State<Emargancypage> {
               Expanded(
                 child: Container(
                   child: ListView.builder(
-                    itemCount: 10,
+                    itemCount: issearch == true
+                        ? searchcontacts.length
+                        : contacts.length,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListTile(
-                          onLongPress: () {
-                            setState(() {});
-                          },
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          tileColor: Color(COLOR.coustomColors('F6F6F6')),
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Center(
-                              child: Icon(
-                                Icons.person,
-                              ),
-                            ),
-                          ),
-                          title: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Contact Name',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Color(
-                                    COLOR.coustomColors('707070'),
-                                  ),
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                '+8801234657890',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Color(
-                                    COLOR.coustomColors('747474'),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                      Contact contact = issearch == true
+                          ? searchcontacts[index]
+                          : contacts[index];
+                      return Numberlist(
+                        name: "${contact.displayName}",
+                        number: "${contact.phones!.elementAt(0).value}",
                       );
                     },
                   ),

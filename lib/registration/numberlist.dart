@@ -14,58 +14,51 @@ class Numberlist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        left: 15,
-        right: 15,
-        top: 8,
-      ),
-      height: 55,
-      decoration: BoxDecoration(
-        color: Color(COLOR.coustomColors('F6F6F6')),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Center(
-        child: ListTile(
-          leading: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: CircleAvatar(
-              backgroundColor: Color(COLOR.coustomColors('F6F6F6')),
-              child: Icon(
-                Icons.person,
-                color: Colors.grey,
-              ),
-            ),
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10, bottom: 5),
+      child: ListTile(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+        tileColor: Color(COLOR.coustomColors('#F6F6F6')),
+        onLongPress: () {},
+        onTap: () {},
+        selected: false,
+        leading: CircleAvatar(
+          backgroundColor: Colors.white,
+          child: Icon(
+            Icons.person,
+            color: Colors.blue,
           ),
-          title: Padding(
-            padding: const EdgeInsets.only(top: 5),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name!,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(
-                      COLOR.coustomColors('707070'),
-                    ),
-                    fontWeight: FontWeight.w600,
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 5),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name!,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(
+                    COLOR.coustomColors('707070'),
+                  ),
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                number!,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Color(
+                    COLOR.coustomColors('747474'),
                   ),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  number!,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Color(
-                      COLOR.coustomColors('747474'),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

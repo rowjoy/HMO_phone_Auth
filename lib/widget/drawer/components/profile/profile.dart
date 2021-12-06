@@ -18,8 +18,8 @@ class Profilepage extends StatefulWidget {
 }
 
 class _ProfilepageState extends State<Profilepage> {
-  String? images;
-  String? nid;
+  String? profileimages;
+  String? nidimages;
 
   int? blood = 0;
   int? plasma = 0;
@@ -31,41 +31,41 @@ class _ProfilepageState extends State<Profilepage> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             Appbar(
               text: 'Profile',
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 10),
+              margin: EdgeInsets.only(bottom: 8),
               child: Stack(
                 children: [
                   Container(
-                    height: 80,
-                    width: 80,
+                    height: 75,
+                    width: 75,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: ClipOval(
-                      child: images == null
+                      child: profileimages == null
                           ? Image.asset('assets/icons/blank-profil.png')
                           : Image.file(
-                              File(images!),
+                              File(profileimages!),
                               fit: BoxFit.fill,
                             ),
                     ),
                   ),
                   Positioned(
-                    top: 48,
-                    left: 48,
+                    top: 45,
+                    left: 45,
                     right: 0,
                     bottom: 0,
                     child: IconButton(
                       onPressed: () {
                         profilepicked(
-                          ImageSource.camera,
+                          ImageSource.gallery,
                         );
                       },
                       icon: Icon(
@@ -294,7 +294,7 @@ class _ProfilepageState extends State<Profilepage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 5, left: 10, right: 10),
+              margin: EdgeInsets.only(bottom: 10, left: 10, right: 10),
               width: MediaQuery.of(context).size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -313,7 +313,7 @@ class _ProfilepageState extends State<Profilepage> {
                     ),
                   ),
                   Container(
-                    height: 50,
+                    height: 48,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: Color(
@@ -328,7 +328,7 @@ class _ProfilepageState extends State<Profilepage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              child: nid == null
+                              child: nidimages == null
                                   ? Text(
                                       'IMG123456',
                                       style: TextStyle(
@@ -338,7 +338,7 @@ class _ProfilepageState extends State<Profilepage> {
                                         ),
                                       ),
                                     )
-                                  : Image.file(File(nid!)),
+                                  : Image.file(File(nidimages!)),
                             ),
                             IconButton(
                                 onPressed: () {
@@ -365,14 +365,14 @@ class _ProfilepageState extends State<Profilepage> {
   Future profilepicked(ImageSource source) async {
     final XFile? selectImage = await imagePicker.pickImage(source: source);
     setState(() {
-      images = selectImage!.path;
+      profileimages = selectImage!.path;
     });
   }
 
   Future nidpicker(ImageSource source) async {
     final XFile? getimage = await imagePicker.pickImage(source: source);
     setState(() {
-      nid = getimage!.path;
+      nidimages = getimage!.path;
     });
   }
 }

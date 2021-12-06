@@ -22,7 +22,7 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
   var formkey = GlobalKey<FormState>();
-  String? images;
+  String? nidimages;
   TextEditingController datecontroller = TextEditingController();
   TextEditingController namecontroller = TextEditingController();
   TextEditingController imagename = TextEditingController();
@@ -59,7 +59,6 @@ class _RegistrationState extends State<Registration> {
               ),
               Container(
                 margin: EdgeInsets.only(left: 10, right: 10, top: 10),
-                height: MediaQuery.of(context).size.height * 1 / 2.2,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -75,14 +74,91 @@ class _RegistrationState extends State<Registration> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 5),
-                                child: Text(
-                                  'Full name',
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 5),
+                                  child: Text(
+                                    'Full name',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Color(
+                                        COLOR.coustomColors('707070'),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                TextFromFields(
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(25),
+                                  ],
+                                  hintText: 'Full name',
+                                  controller: namecontroller,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Please enter your name';
+                                    }
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 5),
+                                  child: Text(
+                                    'Date of Birth',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Color(
+                                        COLOR.coustomColors('707070'),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                TextFromFields(
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(9),
+                                  ],
+                                  controller: datecontroller,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Please enter your Date of Birth';
+                                    }
+                                  },
+                                  hintText: 'Date of Birth',
+                                  suffixIcon: IconButton(
+                                      onPressed: () {
+                                        selecttime(context);
+                                      },
+                                      icon: Icon(
+                                        Icons.calendar_today,
+                                        color: Colors.grey,
+                                      )),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Gender',
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Color(
@@ -90,77 +166,9 @@ class _RegistrationState extends State<Registration> {
                                     ),
                                   ),
                                 ),
-                              ),
-                              TextFromFields(
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(25),
-                                ],
-                                hintText: 'Full name',
-                                controller: namecontroller,
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Please enter your name';
-                                  }
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 5),
-                                child: Text(
-                                  'Date of Birth',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(
-                                      COLOR.coustomColors('707070'),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              TextFromFields(
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(9),
-                                ],
-                                controller: datecontroller,
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Please enter your Date of Birth';
-                                  }
-                                },
-                                hintText: 'Date of Birth',
-                                suffixIcon: IconButton(
-                                    onPressed: () {
-                                      selecttime(context);
-                                    },
-                                    icon: Icon(
-                                      Icons.calendar_today,
-                                      color: Colors.grey,
-                                    )),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Gender',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Color(
-                                    COLOR.coustomColors('707070'),
-                                  ),
-                                ),
-                              ),
-                              Genterchip(),
-                            ],
+                                Genterchip(),
+                              ],
+                            ),
                           ),
                         ),
                         Container(
@@ -193,22 +201,27 @@ class _RegistrationState extends State<Registration> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Container(
-                                          child: images == null
-                                              ? Text(
-                                                  'IMG123456',
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Color(
-                                                      COLOR.coustomColors(
-                                                          '707070'),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 1, bottom: 1),
+                                          child: Container(
+                                            child: nidimages == null
+                                                ? Text(
+                                                    'IMG123456',
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: TextStyle(
+                                                      fontSize: 12,
+                                                      color: Color(
+                                                        COLOR.coustomColors(
+                                                            '707070'),
+                                                      ),
+                                                      fontWeight:
+                                                          FontWeight.w600,
                                                     ),
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                )
-                                              : Image.file(File(images!)),
+                                                  )
+                                                : Image.file(File(nidimages!)),
+                                          ),
                                         ),
                                         IconButton(
                                             onPressed: () {
@@ -275,7 +288,7 @@ class _RegistrationState extends State<Registration> {
       source: ImageSource.gallery,
     );
     setState(() {
-      images = selectimage!.path;
+      nidimages = selectimage!.path;
     });
   }
 }

@@ -13,6 +13,7 @@ import 'package:hmo/view/emergancy/emargancy.dart';
 import 'package:hmo/view/home/home.dart';
 import 'package:hmo/view/home/homescreen.dart';
 import 'package:hmo/widget/drawer/components/profile/profile.dart';
+import 'package:hmo/widget/drawer/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         Contactpage.path: (context) => Contactpage(),
         Emargancypage.path: (context) => Emargancypage(),
         Profilepage.path: (context) => Profilepage(),
+        HomeDrawer.path: (context) => HomeDrawer(),
       },
     );
   }
