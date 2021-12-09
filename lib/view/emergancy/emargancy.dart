@@ -19,19 +19,19 @@ class Emargancypage extends StatefulWidget {
 class _EmargancypageState extends State<Emargancypage> {
   TextEditingController controllerserch = TextEditingController();
 
-  List<Contact> contacts = [];
-  List<Contact> searchcontacts = [];
+  List<Contact> contact = [];
+  List<Contact> searchcontact = [];
   Future getcontact() async {
     List<Contact> _contacts =
         await ContactsService.getContacts(withThumbnails: false);
     setState(() {
-      contacts = _contacts;
+      contact = _contacts;
     });
   }
 
   Future searchfilder() async {
     List<Contact> _contact = [];
-    _contact.addAll(contacts);
+    _contact.addAll(contact);
     if (controllerserch.text.isNotEmpty) {
       _contact.retainWhere((element) {
         String seachtrem = controllerserch.text.toLowerCase();
@@ -39,7 +39,7 @@ class _EmargancypageState extends State<Emargancypage> {
         return dysplayname.contains(seachtrem);
       });
       setState(() {
-        searchcontacts = _contact;
+        searchcontact = _contact;
       });
     }
   }
@@ -275,15 +275,16 @@ class _EmargancypageState extends State<Emargancypage> {
                 child: Container(
                   child: ListView.builder(
                     itemCount: issearch == true
-                        ? searchcontacts.length
-                        : contacts.length,
+                        ? searchcontact.length
+                        : contact.length,
                     itemBuilder: (context, index) {
-                      Contact contact = issearch == true
-                          ? searchcontacts[index]
-                          : contacts[index];
+                      Contact contactlist = issearch == true
+                          ? searchcontact[index]
+                          : contact[index];
                       return Numberlist(
-                        name: "${contact.displayName}",
-                        number: "${contact.phones!.elementAt(0).value}",
+                        selected: false,
+                        name: "${contactlist.displayName}",
+                        number: "${contactlist.phones!.elementAt(0).value}",
                       );
                     },
                   ),

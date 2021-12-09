@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, sized_box_for_whitespace, avoid_print
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, sized_box_for_whitespace, avoid_print, unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,19 +16,49 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Future allpermisson() async {
-    Map<Permission, PermissionStatus> statuses = await [
-      Permission.location,
-      Permission.storage,
-      Permission.contacts,
-      Permission.calendar,
-      Permission.bluetooth,
-    ].request();
     if (await Permission.contacts.request().isGranted) {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Loginpage()));
-      // Either the permission was already granted before or the user just granted it.
     } else if (await Permission.contacts.isDenied) {
-      SystemNavigator.pop();
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            backgroundColor: Colors.black,
+            title: Text(
+              'Access  Contact',
+              style: TextStyle(color: Colors.white),
+            ),
+            content: Text(
+              'Please Allow access than use this apps',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () async {
+                    print(await Permission.contacts.status);
+                    if (await Permission.contacts.request().isGranted) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Loginpage()));
+
+                      // Either the permission was already granted before or the user just granted it.
+                    } else if (await Permission.contacts.isDenied) {
+                      SystemNavigator.pop();
+                    }
+                  },
+                  child: Text('Use Apps')),
+              TextButton(
+                onPressed: () {
+                  SystemNavigator.pop();
+                },
+                child: Text('Exit'),
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 

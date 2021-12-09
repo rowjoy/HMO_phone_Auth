@@ -6,10 +6,20 @@ import 'package:hmo/utils/colors.dart';
 class Numberlist extends StatelessWidget {
   final String? name;
   final String? number;
+  final bool? selected;
+  final void Function()? onLongPress;
+  final void Function()? onTab;
+  final Color? namecolor;
+  final Color? numbercolor;
   const Numberlist({
     Key? key,
     this.name,
     this.number,
+    this.selected,
+    this.onLongPress,
+    this.onTab,
+    this.namecolor,
+    this.numbercolor,
   }) : super(key: key);
 
   @override
@@ -21,9 +31,10 @@ class Numberlist extends StatelessWidget {
           borderRadius: BorderRadius.circular(5),
         ),
         tileColor: Color(COLOR.coustomColors('#F6F6F6')),
-        onLongPress: () {},
-        onTap: () {},
-        selected: false,
+        selectedTileColor: Colors.blue,
+        onLongPress: onLongPress,
+        onTap: onTab,
+        selected: selected!,
         leading: CircleAvatar(
           backgroundColor: Colors.white,
           child: Icon(
@@ -40,9 +51,7 @@ class Numberlist extends StatelessWidget {
                 name!,
                 style: TextStyle(
                   fontSize: 14,
-                  color: Color(
-                    COLOR.coustomColors('707070'),
-                  ),
+                  color: namecolor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -53,9 +62,7 @@ class Numberlist extends StatelessWidget {
                 number!,
                 style: TextStyle(
                   fontSize: 12,
-                  color: Color(
-                    COLOR.coustomColors('747474'),
-                  ),
+                  color: numbercolor,
                 ),
               ),
             ],
