@@ -11,6 +11,7 @@ class Numberlist extends StatelessWidget {
   final void Function()? onTab;
   final Color? namecolor;
   final Color? numbercolor;
+  final Color? tileColor;
   const Numberlist({
     Key? key,
     this.name,
@@ -20,6 +21,7 @@ class Numberlist extends StatelessWidget {
     this.onTab,
     this.namecolor,
     this.numbercolor,
+    this.tileColor,
   }) : super(key: key);
 
   @override
@@ -30,11 +32,10 @@ class Numberlist extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),
-        tileColor: Color(COLOR.coustomColors('#F6F6F6')),
+        tileColor: tileColor,
         selectedTileColor: Colors.blue,
         onLongPress: onLongPress,
         onTap: onTab,
-        selected: selected!,
         leading: CircleAvatar(
           backgroundColor: Colors.white,
           child: Icon(

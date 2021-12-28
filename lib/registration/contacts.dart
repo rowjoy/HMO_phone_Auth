@@ -3,7 +3,6 @@
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:hmo/registration/contactmodel.dart';
 
 import 'package:hmo/registration/location.dart';
 import 'package:hmo/registration/numberlist.dart';
@@ -26,7 +25,8 @@ class _ContactsNumberState extends State<ContactsNumber> {
 
   List<Contact> contacts = [];
   List<Contact> searchcontacts = [];
-  List<ContactModel> selectedcontact = [];
+  List<Contact> selectedcontact = [];
+
   bool? selecednumber;
   int selectedIndex = 0;
   Future getcontact() async {
@@ -81,84 +81,83 @@ class _ContactsNumberState extends State<ContactsNumber> {
                         text: 'Trusted Contacts',
                       ),
                     ),
-                    selecednumber == true
+                    selectedcontact.isNotEmpty
                         ? Container(
                             child: CarouselSlider(
                               // ignore: prefer_const_literals_to_create_immutables
                               items: selectedcontact.map((e) {
-                                return Container(
-                                  margin: EdgeInsets.only(top: 6, bottom: 6),
-                                  decoration: BoxDecoration(
-                                    color: Color(COLOR.coustomColors('FFFFFF')),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.shade100,
-                                        spreadRadius: 5,
-                                        blurRadius: 5,
-                                        offset: Offset(0, 3),
-                                      ),
-                                    ],
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 3, bottom: 3),
                                   child: Container(
-                                    margin: EdgeInsets.only(
-                                      left: 10,
-                                      right: 10,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          Color(COLOR.coustomColors('FFFFFF')),
+                                      boxShadow: kElevationToShadow[4],
+                                      borderRadius: BorderRadius.circular(5),
                                     ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            // ignore: prefer_const_literals_to_create_immutables
-                                            children: [
-                                              Text(
-                                                '${e.name}',
-                                                style: TextStyle(
-                                                  color: Color(
-                                                    COLOR.coustomColors(
-                                                        '#707070'),
+                                    child: Container(
+                                      margin: EdgeInsets.only(
+                                        left: 10,
+                                        right: 10,
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              // ignore: prefer_const_literals_to_create_immutables
+                                              children: [
+                                                Text(
+                                                  '${e.displayName}',
+                                                  style: TextStyle(
+                                                    color: Color(
+                                                      COLOR.coustomColors(
+                                                          '#707070'),
+                                                    ),
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 12,
                                                   ),
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 15,
                                                 ),
-                                              ),
-                                              Checkbox(
-                                                value: checkboxs,
-                                                onChanged: (value) {
-                                                  setState(() {
-                                                    checkboxs = value!;
-                                                  });
-                                                },
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          child: Text(
-                                            "${e.number}",
-                                            style: TextStyle(
-                                              color: Color(
-                                                COLOR.coustomColors('#707070'),
-                                              ),
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: 14,
+                                                Checkbox(
+                                                  value: checkboxs,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      checkboxs = value!;
+                                                    });
+                                                  },
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                          Container(
+                                            child: Text(
+                                              "${e.phones!.elementAt(0).value}",
+                                              style: TextStyle(
+                                                color: Color(
+                                                  COLOR
+                                                      .coustomColors('#707070'),
+                                                ),
+                                                fontWeight: FontWeight.normal,
+                                                fontSize: 10,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 );
                               }).toList(),
                               options: CarouselOptions(
-                                height: 92.0,
+                                height: 79.0,
                                 aspectRatio: 16 / 9,
                                 enlargeCenterPage: true,
-                                enableInfiniteScroll: true,
+                                enableInfiniteScroll: false,
                                 viewportFraction: 0.8,
                               ),
                             ),
@@ -189,33 +188,31 @@ class _ContactsNumberState extends State<ContactsNumber> {
                         Contact contact = isserch == true
                             ? searchcontacts[index]
                             : contacts[index];
+
+                        // ignore: avoid_print
+
                         return Numberlist(
-                          selected: index == selectedIndex,
-                          onLongPress: () {
+                          onTab: () {
                             setState(() {
-                              if (selecednumber = true) {
-                                selectedIndex = index;
-                                selectedcontact.add(ContactModel(
-                                    contact.displayName,
-                                    contact.phones!.elementAt(0).value));
+                              if (selectedcontact.length < 5 &&
+                                  !selectedcontact.contains(contact)) {
+                                selectedcontact.add(contact);
                               } else {
-                                selectedcontact.removeAt(0);
+                                selectedcontact.remove(contact);
                               }
                             });
                           },
-                          onTab: () {},
+                          tileColor: selectedcontact.contains(contact)
+                              ? Color(COLOR.coustomColors('#00B27A'))
+                              : Color(COLOR.coustomColors('#F6F6F6')),
                           name: '${contact.displayName}',
                           number: '${contact.phones!.elementAt(0).value}',
-                          namecolor: selectedIndex == index
+                          namecolor: selectedcontact.contains(contact)
                               ? Colors.white
-                              : Color(
-                                  COLOR.coustomColors('707070'),
-                                ),
-                          numbercolor: selectedIndex == index
-                              ? Colors.white
-                              : Color(
-                                  COLOR.coustomColors('747474'),
-                                ),
+                              : Colors.black,
+                          numbercolor: selectedcontact.contains(contact)
+                              ? Colors.white70
+                              : Colors.grey,
                         );
                       }),
                 ),

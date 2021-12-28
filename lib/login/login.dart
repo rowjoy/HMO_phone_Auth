@@ -1,7 +1,8 @@
-// ignore_for_file: avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_constructors
+// ignore_for_file: avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_constructors, unused_local_variable, unnecessary_new
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:hmo/login/code.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/from_field.dart';
@@ -61,10 +62,13 @@ class _LoginpageState extends State<Loginpage> {
                                 LengthLimitingTextInputFormatter(11),
                               ],
                               validator: (value) {
+                                String patttern = r'(^[0][1][346789][0-9]{8}$)';
+                                RegExp regExp = new RegExp(patttern);
+
                                 if (value!.isEmpty) {
-                                  return ('Please enter your number');
-                                } else if (value.length != 11) {
-                                  return ('Please Enter right number');
+                                  return 'Please enter mobile number';
+                                } else if (!regExp.hasMatch(value)) {
+                                  return 'Please enter valid mobile number';
                                 }
                               },
                               controller: phonecontroller,

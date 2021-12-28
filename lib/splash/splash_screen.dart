@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:hmo/login/login.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -15,9 +16,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  int splashtime = 3;
   Future allpermisson() async {
     if (await Permission.contacts.request().isGranted) {
-      Navigator.push(
+      Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Loginpage()));
     } else if (await Permission.contacts.isDenied) {
       showDialog(
@@ -30,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
               style: TextStyle(color: Colors.white),
             ),
             content: Text(
-              'Please Allow access than use this apps',
+              'This apps Access your Phone  contact  number ',
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -38,17 +40,14 @@ class _SplashScreenState extends State<SplashScreen> {
             actions: [
               TextButton(
                   onPressed: () async {
-                    print(await Permission.contacts.status);
-                    if (await Permission.contacts.request().isGranted) {
-                      Navigator.push(context,
+                    if (await Permission.contacts.isGranted) {
+                      Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => Loginpage()));
-
-                      // Either the permission was already granted before or the user just granted it.
                     } else if (await Permission.contacts.isDenied) {
-                      SystemNavigator.pop();
+                      openAppSettings();
                     }
                   },
-                  child: Text('Use Apps')),
+                  child: Text('Allow')),
               TextButton(
                 onPressed: () {
                   SystemNavigator.pop();
@@ -64,10 +63,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: splashtime), () async {
       allpermisson();
     });
+
+    super.initState();
   }
 
   @override
