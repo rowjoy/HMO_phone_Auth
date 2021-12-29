@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/utils/varibales.dart';
 
 class Genterchip extends StatefulWidget {
   const Genterchip({Key? key}) : super(key: key);
@@ -11,7 +12,6 @@ class Genterchip extends StatefulWidget {
 }
 
 class _GenterchipState extends State<Genterchip> {
-  int value = 0;
   Widget genterchip(String name, int number) {
     return ChoiceChip(
       autofocus: true,
@@ -23,22 +23,22 @@ class _GenterchipState extends State<Genterchip> {
         ),
       ),
       labelStyle: TextStyle(
-        color: value == number
+        color: chousechipvalues == number
             ? Colors.white
             : Color(COLOR.coustomColors('#707070')),
         fontWeight: FontWeight.w600,
         fontSize: 11,
       ),
-      selected: value == number,
+      selected: chousechipvalues == number,
       backgroundColor: Color(COLOR.coustomColors('F6F6F6')),
       pressElevation: 5,
       selectedColor: Color(COLOR.coustomColors('00B27A')),
       onSelected: (value) {
         setState(() {
           if (value) {
-            this.value = number;
+            chousechipvalues = number;
           } else {
-            this.value = 0;
+            chousechipvalues = 1;
           }
         });
       },
@@ -47,6 +47,8 @@ class _GenterchipState extends State<Genterchip> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
+    print(chousechipvalues);
     return Container(
       child: Wrap(
         spacing: 15,

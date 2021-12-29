@@ -9,6 +9,7 @@ class Drawerlisttile extends StatelessWidget {
   final void Function()? onTap;
   final void Function()? onLongPress;
   final bool? selected;
+
   const Drawerlisttile({
     Key? key,
     this.image,
@@ -19,7 +20,9 @@ class Drawerlisttile extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 5, top: 3),
       child: ListTile(

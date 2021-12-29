@@ -15,7 +15,7 @@ class HomeDrawer extends StatefulWidget {
 }
 
 class _HomeDrawerState extends State<HomeDrawer> {
-  bool selected = false;
+  late bool selecteds;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -184,7 +184,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   text: 'Privacy Policy',
                 ),
                 Drawerlisttile(
-                  selected: false,
+                  selected: true,
                   onLongPress: () {},
                   onTap: () {},
                   image: AssetImage('assets/icons/logout_black_24dp@1X.png'),

@@ -5,6 +5,7 @@ showsnckbers(BuildContext context, label, dismissDirection) {
     SnackBar(
       content: Text(label),
       dismissDirection: dismissDirection,
+      duration: const Duration(seconds: 1),
     ),
   );
 }

@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:hmo/registration/chousechip.dart';
 import 'package:hmo/registration/contacts.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/utils/snackber.dart';
+import 'package:hmo/utils/varibales.dart';
 import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/from_field.dart';
@@ -99,8 +101,12 @@ class _RegistrationState extends State<Registration> {
                                   hintText: 'Full name',
                                   controller: namecontroller,
                                   validator: (value) {
+                                    String pattan = r'(^[A-Za-z a-z]{3,20})';
+                                    RegExp regExp = RegExp(pattan);
                                     if (value!.isEmpty) {
                                       return 'Please enter your name';
+                                    } else if (!regExp.hasMatch(value)) {
+                                      return 'Please enter your valid name';
                                     }
                                   },
                                 ),
@@ -268,6 +274,15 @@ class _RegistrationState extends State<Registration> {
                 onPressed: () {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
+                    if (chousechipvalues.bitLength == 0) {
+                      return showsnckbers(context, 'Please slected your Gender',
+                          DismissDirection.down);
+                    }
+
+                    if (nidimages == null) {
+                      return showsnckbers(context,
+                          'Please select your NID card', DismissDirection.down);
+                    }
                     Navigator.push(
                         context,
                         MaterialPageRoute(

@@ -7,6 +7,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:hmo/registration/location.dart';
 import 'package:hmo/registration/numberlist.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/utils/snackber.dart';
 import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/from_field.dart';
@@ -166,7 +167,7 @@ class _ContactsNumberState extends State<ContactsNumber> {
                     Container(
                       margin: EdgeInsets.only(top: 5, bottom: 3),
                       child: Text(
-                        'You can select up to 5 contacts',
+                        'You can select up to 5/${selectedcontact.length} contacts.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Color(
@@ -252,10 +253,17 @@ class _ContactsNumberState extends State<ContactsNumber> {
                           const EdgeInsets.only(left: 15, right: 15, bottom: 3),
                       buttonname: 'Continue',
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Locationpage()));
+                        if (selectedcontact.length != 5) {
+                          showsnckbers(
+                              context,
+                              'Please select 5 contact number. Now selected ${selectedcontact.length}',
+                              DismissDirection.down);
+                        } else if (selectedcontact.length == 5) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Locationpage()));
+                        }
                       },
                     ),
                   ],
