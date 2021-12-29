@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hmo/registration/registration.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/utils/snackber.dart';
 import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/button.dart';
 import 'package:hmo/widget/otpfrom.dart';
@@ -97,7 +98,7 @@ class _CodepageState extends State<Codepage> {
                             Container(
                               margin: EdgeInsets.only(left: 45, right: 45),
                               child: Text(
-                                'Enter the OTP we’ve sent to your phone',
+                                "Enter the OTP we’ve sent to your phone",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Color(
@@ -176,10 +177,25 @@ class _CodepageState extends State<Codepage> {
                       ),
                       buttonname: 'Submit',
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Registration()));
+                        if (pin1.text.isEmpty &&
+                            pin2.text.isEmpty &&
+                            pin3.text.isEmpty &&
+                            pin4.text.isEmpty &&
+                            pin5.text.isEmpty &&
+                            pin6.text.isEmpty) {
+                          showsnckbers(context, '  OTP field isEmpty',
+                              DismissDirection.up);
+                        } else if (pin1.text.isNotEmpty &&
+                            pin2.text.isNotEmpty &&
+                            pin3.text.isNotEmpty &&
+                            pin4.text.isNotEmpty &&
+                            pin5.text.isNotEmpty &&
+                            pin6.text.isNotEmpty) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Registration()));
+                        }
                       },
                     ),
                   ],
