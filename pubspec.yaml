@@ -37,7 +37,8 @@ dependencies:
   carousel_slider: ^4.0.0
   image_picker: ^0.8.4+4
   permission_handler: ^8.3.0
-  contacts_service: ^0.6.3  
+  contacts_service: ^0.6.3
+  shared_preferences: ^2.0.11  
   
   
 
