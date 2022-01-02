@@ -66,6 +66,9 @@ class BloodRequest extends StatelessWidget {
                               ),
                               Text(
                                 '${data.name}',
+                                maxLines: 1,
+                                softWrap: false,
+                                overflow: TextOverflow.fade,
                                 style: TextStyle(
                                   color: Color(COLOR.coustomColors('#00B27A')),
                                   fontWeight: FontWeight.w400,
@@ -175,25 +178,25 @@ class BloodRequest extends StatelessWidget {
                       children: [
                         IconButton(
                           onPressed: () {},
-                          icon: ImageIcon(
-                            AssetImage(
-                                'assets/icons/Icon ionic-ios-call@1X.png'),
+                          icon: Icon(
+                            Icons.call,
+                            size: 30,
                             color: Color(COLOR.coustomColors('#707070')),
                           ),
                         ),
                         IconButton(
                           onPressed: () {},
-                          icon: ImageIcon(
-                            AssetImage(
-                                'assets/icons/Icon material-message@1X.png'),
+                          icon: Icon(
+                            Icons.message_sharp,
+                            size: 30,
                             color: Color(COLOR.coustomColors('#707070')),
                           ),
                         ),
                         IconButton(
                           onPressed: () {},
-                          icon: ImageIcon(
-                            AssetImage(
-                                'assets/icons/Icon material-email@1X.png'),
+                          icon: Icon(
+                            Icons.email,
+                            size: 30,
                             color: Color(COLOR.coustomColors('#707070')),
                           ),
                         ),

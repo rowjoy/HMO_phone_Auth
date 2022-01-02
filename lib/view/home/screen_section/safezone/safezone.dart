@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/view/home/home_tab_section.dart/nearest_safe_zone.dart';
+import 'package:hmo/view/home/screen_section/safezone/safezonelist.dart';
 
 class Safezone extends StatelessWidget {
   const Safezone({
@@ -71,17 +72,38 @@ class Safezone extends StatelessWidget {
                 Zonesection(
                   image: 'assets/icons/police-badge-01@1X.png',
                   zonename: 'Police Station',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Safezoneslist(
+                                  name: 'Police station',
+                                )));
+                  },
                 ),
                 Zonesection(
                   image: 'assets/icons/hospital-01@1X.png',
                   zonename: 'Hospital',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Safezoneslist(
+                                  name: 'Hospital',
+                                )));
+                  },
                 ),
                 Zonesection(
                   image: 'assets/icons/ambulance-01@1X.png',
                   zonename: 'Ambulance',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Safezoneslist(
+                                  name: 'Ambulance',
+                                )));
+                  },
                 ),
               ],
             ),
@@ -94,7 +116,14 @@ class Safezone extends StatelessWidget {
                 Zonesection(
                   image: 'assets/icons/fire-truck-01@1X.png',
                   zonename: 'Fire Station',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Safezoneslist(
+                                  name: 'Fire Station',
+                                )));
+                  },
                 ),
                 Zonesection(
                   image: 'assets/icons/blood-donation-01@1X.png',

@@ -43,7 +43,6 @@ class _BloodcardState extends State<Bloodcard> {
             Container(
               margin: EdgeInsets.only(left: 10, right: 10, top: 15),
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 1 / 2.2,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -84,6 +83,9 @@ class _BloodcardState extends State<Bloodcard> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       widget.name,
                       style: TextStyle(
@@ -91,6 +93,9 @@ class _BloodcardState extends State<Bloodcard> {
                         fontWeight: FontWeight.bold,
                         fontSize: 19,
                       ),
+                    ),
+                    SizedBox(
+                      height: 5,
                     ),
                     Text(
                       widget.hospitelname,
@@ -102,6 +107,9 @@ class _BloodcardState extends State<Bloodcard> {
                         fontSize: 18,
                       ),
                     ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       widget.location,
                       maxLines: 1,
@@ -112,6 +120,9 @@ class _BloodcardState extends State<Bloodcard> {
                         fontSize: 14,
                       ),
                     ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       '${widget.distance}km',
                       style: TextStyle(
@@ -119,12 +130,18 @@ class _BloodcardState extends State<Bloodcard> {
                         fontSize: 14,
                       ),
                     ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       widget.date,
                       style: TextStyle(
                         color: Color(COLOR.coustomColors('#FF4C4C')),
                         fontSize: 14,
                       ),
+                    ),
+                    SizedBox(
+                      height: 5,
                     ),
                     SizedBox(
                       width: 50,
@@ -143,31 +160,34 @@ class _BloodcardState extends State<Bloodcard> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Container(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: ImageIcon(
-                              AssetImage(
-                                  'assets/icons/Icon ionic-ios-call@1X.png'),
+                            icon: Icon(
+                              Icons.call,
+                              size: 30,
                               color: Color(COLOR.coustomColors('#707070')),
                             ),
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: ImageIcon(
-                              AssetImage(
-                                  'assets/icons/Icon material-message@1X.png'),
+                            icon: Icon(
+                              Icons.message_sharp,
+                              size: 30,
                               color: Color(COLOR.coustomColors('#707070')),
                             ),
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: ImageIcon(
-                              AssetImage(
-                                  'assets/icons/Icon material-email@1X.png'),
+                            icon: Icon(
+                              Icons.email,
+                              size: 30,
                               color: Color(COLOR.coustomColors('#707070')),
                             ),
                           ),

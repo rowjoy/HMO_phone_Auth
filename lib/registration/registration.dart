@@ -133,7 +133,7 @@ class _RegistrationState extends State<Registration> {
                                   ),
                                 ),
                                 TextFromFields(
-                                  keyboardType: TextInputType.number,
+                                  keyboardType: TextInputType.none,
                                   inputFormatters: [
                                     LengthLimitingTextInputFormatter(9),
                                   ],

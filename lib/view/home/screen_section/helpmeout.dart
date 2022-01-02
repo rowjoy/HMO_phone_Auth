@@ -1,7 +1,5 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
-import 'dart:ffi';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hmo/model/help_me_out.dart';
@@ -51,6 +49,9 @@ class Helpmeout extends StatelessWidget {
                             ),
                             Text(
                               '${data.name}',
+                              maxLines: 1,
+                              softWrap: false,
+                              overflow: TextOverflow.fade,
                               style: TextStyle(
                                 color: Color(COLOR.coustomColors('#00B27A')),
                                 fontWeight: FontWeight.w400,
@@ -118,23 +119,25 @@ class Helpmeout extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: ImageIcon(
-                          AssetImage('assets/icons/Icon ionic-ios-call@1X.png'),
+                        icon: Icon(
+                          Icons.call,
+                          size: 30,
                           color: Color(COLOR.coustomColors('#707070')),
                         ),
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: ImageIcon(
-                          AssetImage(
-                              'assets/icons/Icon material-message@1X.png'),
+                        icon: Icon(
+                          Icons.message_sharp,
+                          size: 30,
                           color: Color(COLOR.coustomColors('#707070')),
                         ),
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: ImageIcon(
-                          AssetImage('assets/icons/Icon material-email@1X.png'),
+                        icon: Icon(
+                          Icons.email,
+                          size: 30,
                           color: Color(COLOR.coustomColors('#707070')),
                         ),
                       ),
