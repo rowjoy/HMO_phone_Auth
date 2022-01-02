@@ -253,12 +253,12 @@ class _ContactsNumberState extends State<ContactsNumber> {
                           const EdgeInsets.only(left: 15, right: 15, bottom: 3),
                       buttonname: 'Continue',
                       onPressed: () {
-                        if (selectedcontact.length != 5) {
+                        if (selectedcontact.isEmpty) {
                           showsnckbers(
                               context,
-                              'Please select 5 contact number. Now selected ${selectedcontact.length}',
+                              'Please you can  select up to 5 contact number. Now selected ${selectedcontact.length}',
                               DismissDirection.down);
-                        } else if (selectedcontact.length == 5) {
+                        } else if (selectedcontact.isNotEmpty) {
                           Navigator.push(
                               context,
                               MaterialPageRoute(

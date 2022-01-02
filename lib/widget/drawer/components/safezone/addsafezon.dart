@@ -19,7 +19,6 @@ class _ADDsafezonState extends State<ADDsafezon> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        margin: EdgeInsets.only(left: 10, right: 10),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -30,6 +29,7 @@ class _ADDsafezonState extends State<ADDsafezon> {
             ),
             Expanded(
               child: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
                 child: Column(
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
@@ -96,7 +96,7 @@ class _ADDsafezonState extends State<ADDsafezon> {
               ),
             ),
             ButtonWidget(
-              padding: EdgeInsets.only(bottom: 5),
+              padding: EdgeInsets.only(bottom: 5, left: 10, right: 10),
               buttonname: 'Add to Safe Zone',
               onPressed: () {},
             ),

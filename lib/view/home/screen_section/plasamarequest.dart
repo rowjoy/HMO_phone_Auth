@@ -3,6 +3,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hmo/model/plasamarequest.dart';
 import 'package:hmo/utils/colors.dart';
 
 class PlasamaRequest extends StatelessWidget {
@@ -13,8 +14,8 @@ class PlasamaRequest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
-      items: [
-        Container(
+      items: plasamarequest.map((data) {
+        return Container(
           margin: EdgeInsets.only(top: 5, bottom: 10),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -47,15 +48,18 @@ class PlasamaRequest extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Nahid Alam',
+                              '${data.name}',
                               style: TextStyle(
                                 color: Color(COLOR.coustomColors('#00B27A')),
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
                               ),
                             ),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Text(
-                              '2.6 km',
+                              '${data.distance} km',
                               style: TextStyle(
                                 color: Color(COLOR.coustomColors('#707070')),
                                 fontSize: 14,
@@ -74,8 +78,7 @@ class PlasamaRequest extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
-                            image: NetworkImage(
-                                'https://img.freepik.com/free-photo/pleasant-looking-serious-man-stands-profile-has-confident-expression-wears-casual-white-t-shirt_273609-16959.jpg?size=626&ext=jpg&ga=GA1.2.1423500572.1621641600'),
+                            image: NetworkImage('${data.image}'),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -88,51 +91,59 @@ class PlasamaRequest extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: Color(COLOR.coustomColors('#FF4C4C')),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'O+',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                      Expanded(
+                        flex: 1,
+                        child: CircleAvatar(
+                          backgroundColor:
+                              Color(COLOR.coustomColors('#FF4C4C')),
+                          child: Center(
+                            child: Text(
+                              '${data.bloodgrop}',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            Text(
-                              'Cresent Hospital ',
-                              style: TextStyle(
-                                color: Color(COLOR.coustomColors('#000000')),
-                                fontSize: 16,
+                      Expanded(
+                        flex: 2,
+                        child: Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              Text(
+                                '${data.hospitelname}',
+                                maxLines: 1,
+                                softWrap: false,
+                                overflow: TextOverflow.fade,
+                                style: TextStyle(
+                                  color: Color(COLOR.coustomColors('#000000')),
+                                  fontSize: 16,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'Sector 07, Road 06, Uttara',
-                              style: TextStyle(
-                                color: Color(COLOR.coustomColors('#707070')),
-                                fontSize: 12,
+                              Text(
+                                '${data.location}',
+                                maxLines: 1,
+                                softWrap: false,
+                                overflow: TextOverflow.fade,
+                                style: TextStyle(
+                                  color: Color(COLOR.coustomColors('#707070')),
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'March 1, 2022',
-                              style: TextStyle(
-                                color: Color(COLOR.coustomColors('#FF4C4C')),
-                                fontSize: 12,
+                              Text(
+                                '${data.date}',
+                                style: TextStyle(
+                                  color: Color(COLOR.coustomColors('#FF4C4C')),
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -170,10 +181,10 @@ class PlasamaRequest extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ],
+        );
+      }).toList(),
       options: CarouselOptions(
-        height: 200,
+        height: 205,
         aspectRatio: 16 / 9,
         enlargeCenterPage: true,
         enableInfiniteScroll: true,

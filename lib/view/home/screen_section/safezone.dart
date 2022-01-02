@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/view/home/home_tab_section.dart/nearest_safe_zone.dart';
 
 class Safezone extends StatelessWidget {
   const Safezone({
@@ -21,34 +22,45 @@ class Safezone extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
-            margin: EdgeInsets.only(left: 60, right: 60, top: 15),
-            height: 45,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: Color(COLOR.coustomColors('F6F6F6')),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                ImageIcon(
-                  AssetImage('assets/icons/Path 16@1X.png'),
-                  color: Color(
-                    COLOR.coustomColors('00B27A'),
+          Padding(
+            padding: const EdgeInsets.only(top: 15),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 1 / 2,
+              height: 45,
+              child: ElevatedButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    )),
+                    backgroundColor: MaterialStateProperty.all(
+                        Color(COLOR.coustomColors('F6F6F6'))),
                   ),
-                ),
-                Text(
-                  'Nearest Safe Zone',
-                  style: TextStyle(
-                    color: Color(
-                      COLOR.coustomColors('00B27A'),
-                    ),
-                    fontSize: 14,
-                  ),
-                ),
-              ],
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NearestSafeZone()));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ImageIcon(
+                        AssetImage('assets/icons/Path 16@1X.png'),
+                        color: Color(
+                          COLOR.coustomColors('00B27A'),
+                        ),
+                      ),
+                      Text(
+                        'Nearest Safe Zone',
+                        style: TextStyle(
+                          color: Color(
+                            COLOR.coustomColors('00B27A'),
+                          ),
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  )),
             ),
           ),
           Container(

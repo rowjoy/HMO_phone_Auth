@@ -16,7 +16,9 @@ import 'package:hmo/widget/drawer/components/profile/profile.dart';
 import 'package:hmo/widget/drawer/drawer.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {

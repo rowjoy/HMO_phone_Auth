@@ -1,7 +1,10 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
+import 'dart:ffi';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:hmo/model/help_me_out.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/view/home/screen_section/helpmeout/helpland.dart';
 
@@ -13,8 +16,8 @@ class Helpmeout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
-      items: [
-        Container(
+      items: helpmeout.map((data) {
+        return Container(
           margin: EdgeInsets.only(top: 10, bottom: 10),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -47,15 +50,18 @@ class Helpmeout extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Habiba Annie',
+                              '${data.name}',
                               style: TextStyle(
                                 color: Color(COLOR.coustomColors('#00B27A')),
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
                               ),
                             ),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Text(
-                              '3.9 km',
+                              '${data.destence} km',
                               style: TextStyle(
                                 color: Color(COLOR.coustomColors('#707070')),
                                 fontSize: 14,
@@ -74,8 +80,7 @@ class Helpmeout extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(20),
                           image: DecorationImage(
-                            image: NetworkImage(
-                                'https://upload.wikimedia.org/wikipedia/en/2/2f/Profile_image_Nadia_Lim_chef_2014.jpg'),
+                            image: NetworkImage('${data.image}'),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -139,10 +144,10 @@ class Helpmeout extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ],
+        );
+      }).toList(),
       options: CarouselOptions(
-        height: 200,
+        height: 205,
         aspectRatio: 16 / 9,
         enlargeCenterPage: true,
         enableInfiniteScroll: true,

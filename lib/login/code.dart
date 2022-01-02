@@ -84,7 +84,7 @@ class _CodepageState extends State<Codepage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: 150,
+                      height: MediaQuery.of(context).size.height * 1 / 5.5,
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.only(left: 15, right: 15),
                       decoration: BoxDecoration(
@@ -167,7 +167,7 @@ class _CodepageState extends State<Codepage> {
                       ),
                     ),
                     SizedBox(
-                      height: 100,
+                      height: 80,
                     ),
                     ButtonWidget(
                       padding: const EdgeInsets.only(

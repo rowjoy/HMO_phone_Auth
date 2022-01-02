@@ -45,7 +45,7 @@ class _LoginpageState extends State<Loginpage> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(left: 15, right: 15),
-                      height: 150,
+                      height: MediaQuery.of(context).size.height * 1 / 6,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -84,7 +84,7 @@ class _LoginpageState extends State<Loginpage> {
                       ),
                     ),
                     SizedBox(
-                      height: 100,
+                      height: MediaQuery.of(context).size.height * 1 / 9,
                     ),
                     ButtonWidget(
                       padding: const EdgeInsets.only(
