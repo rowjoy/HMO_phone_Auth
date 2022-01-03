@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/drawer/components/safezone/addsafezon.dart';
 import 'package:hmo/widget/drawer/components/safezone/locationinfo.dart';
 import 'package:hmo/widget/drawer/drawer.dart';
@@ -26,111 +27,85 @@ class _SefezonState extends State<Sefezons> {
         child: Icon(Icons.add),
       ),
       backgroundColor: Colors.white,
-      drawer: Drawer(
-        child: HomeDrawer(),
-      ),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        leading: Builder(builder: (context) {
-          return IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: Icon(
-              Icons.menu,
-              color: Colors.black,
+      body: Container(
+        margin: EdgeInsets.only(left: 10, right: 10),
+        child: Column(
+          children: [
+            Appbar(
+              text: 'Safe Zone',
             ),
-          );
-        }),
-        title: Text('Safe Zone'),
-        titleTextStyle: TextStyle(
-          color: Color(
-            COLOR.coustomColors('#242424'),
-          ),
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.only(left: 10, right: 10),
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          Text(
-                            'Home',
-                            style: TextStyle(
-                              color: Color(COLOR.coustomColors('#303030')),
-                              fontSize: 16,
-                            ),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Column(
+                children: [
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        Text(
+                          'Home',
+                          style: TextStyle(
+                            color: Color(COLOR.coustomColors('#303030')),
+                            fontSize: 16,
                           ),
-                          Text(
-                            'Edit',
-                            style: TextStyle(
-                              color: Color(COLOR.coustomColors('#303030')),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
+                        ),
+                        Text(
+                          'Edit',
+                          style: TextStyle(
+                            color: Color(COLOR.coustomColors('#303030')),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Locationinfo(
-                      location: 'Dhaka, Bangladesh',
-                      onTap: () {},
+                  ),
+                  Locationinfo(
+                    location: 'Dhaka, Bangladesh',
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 15, bottom: 15),
+              height: 1,
+              width: MediaQuery.of(context).size.width,
+              color: Color(COLOR.coustomColors('#303030')).withOpacity(0.5),
+            ),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  Text(
+                    'Others',
+                    style: TextStyle(
+                      color: Color(COLOR.coustomColors('#303030')),
+                      fontSize: 16,
                     ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 15, bottom: 15),
-                height: 1,
-                width: MediaQuery.of(context).size.width,
-                color: Color(COLOR.coustomColors('#303030')).withOpacity(0.5),
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Text(
-                      'Others',
-                      style: TextStyle(
-                        color: Color(COLOR.coustomColors('#303030')),
-                        fontSize: 16,
-                      ),
+                  ),
+                  Text(
+                    'Edit',
+                    style: TextStyle(
+                      color: Color(COLOR.coustomColors('#303030')),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                     ),
-                    Text(
-                      'Edit',
-                      style: TextStyle(
-                        color: Color(COLOR.coustomColors('#303030')),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Locationinfo(
-                location: 'Dhaka, Bangladesh',
-                onTap: () {},
-              ),
-              Locationinfo(
-                location: 'Dhaka, Bangladesh',
-                onTap: () {},
-              ),
-            ],
-          ),
+            ),
+            Locationinfo(
+              location: 'Dhaka, Bangladesh',
+              onTap: () {},
+            ),
+            Locationinfo(
+              location: 'Dhaka, Bangladesh',
+              onTap: () {},
+            ),
+          ],
         ),
       ),
     );

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/widget/drawer/components/profile/profile.dart';
 import 'package:hmo/widget/drawer/components/safezone/safezons.dart';
-import 'package:hmo/widget/drawer/listlile.dart';
+import 'package:hmo/widget/drawer/listtilewidget.dart';
 
 class HomeDrawer extends StatefulWidget {
   static const String path = "Drawerpage";
@@ -15,7 +15,6 @@ class HomeDrawer extends StatefulWidget {
 }
 
 class _HomeDrawerState extends State<HomeDrawer> {
-  late bool selecteds;
   @override
   Widget build(BuildContext context) {
     return Container(
