@@ -12,6 +12,7 @@ import 'package:hmo/view/contact/contact.dart';
 import 'package:hmo/view/emergancy/emargancy.dart';
 import 'package:hmo/view/home/home.dart';
 import 'package:hmo/view/home/homescreen.dart';
+import 'package:hmo/view/home/screen_section/safezone/blood.dart';
 import 'package:hmo/widget/drawer/components/profile/profile.dart';
 import 'package:hmo/widget/drawer/drawer.dart';
 
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         Emargancypage.path: (context) => Emargancypage(),
         Profilepage.path: (context) => Profilepage(),
         HomeDrawer.path: (context) => HomeDrawer(),
+        Bloodpage.path: (context) => Bloodpage(),
       },
     );
   }

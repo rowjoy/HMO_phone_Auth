@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
-import 'package:hmo/view/home/home_tab_section.dart/nearest_safe_zone.dart';
+import 'package:hmo/view/home/home_tab_section/nearest_safe_zone.dart';
+import 'package:hmo/view/home/screen_section/safezone/blood.dart';
 import 'package:hmo/view/home/screen_section/safezone/safezonelist.dart';
 
 class Safezone extends StatelessWidget {
@@ -128,7 +129,10 @@ class Safezone extends StatelessWidget {
                 Zonesection(
                   image: 'assets/icons/blood-donation-01@1X.png',
                   zonename: 'Blood',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Bloodpage()));
+                  },
                 ),
                 Zonesection(
                   image: 'assets/icons/Plazma-01@1X.png',

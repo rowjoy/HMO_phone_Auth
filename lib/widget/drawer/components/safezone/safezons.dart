@@ -5,7 +5,6 @@ import 'package:hmo/utils/colors.dart';
 import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/drawer/components/safezone/addsafezon.dart';
 import 'package:hmo/widget/drawer/components/safezone/locationinfo.dart';
-import 'package:hmo/widget/drawer/drawer.dart';
 
 class Sefezons extends StatefulWidget {
   const Sefezons({Key? key}) : super(key: key);

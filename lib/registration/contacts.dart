@@ -21,7 +21,7 @@ class ContactsNumber extends StatefulWidget {
 }
 
 class _ContactsNumberState extends State<ContactsNumber> {
-  bool checkboxs = false;
+  bool checkboxs = true;
   TextEditingController controllerserch = TextEditingController();
 
   List<Contact> contacts = [];
