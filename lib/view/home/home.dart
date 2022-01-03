@@ -10,6 +10,7 @@ import 'package:hmo/view/home/screen_section/plasamarequest.dart';
 
 import 'package:hmo/view/home/screen_section/safezone/safezone.dart';
 import 'package:hmo/widget/drawer/drawer.dart';
+import 'package:hmo/widget/tapthecard.dart';
 
 class Homepage extends StatefulWidget {
   static const String path = "Homepage";
@@ -130,61 +131,9 @@ class _HomepageState extends State<Homepage> {
                   height: 30,
                 ),
                 Helpmeout(),
-                Container(
-                  margin: EdgeInsets.only(bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: [
-                      Text(
-                        'Tap the card to see details',
-                        style: TextStyle(
-                          color: Color(
-                            COLOR.coustomColors('707070'),
-                          ),
-                          fontSize: 12,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ImageIcon(
-                        AssetImage(
-                          'assets/icons/Group 445@1X.png',
-                        ),
-                        size: 10,
-                      ),
-                    ],
-                  ),
-                ),
+                TapThaeCard(),
                 BloodRequest(),
-                Container(
-                  margin: EdgeInsets.only(bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: [
-                      Text(
-                        'Tap the card to see details',
-                        style: TextStyle(
-                          color: Color(
-                            COLOR.coustomColors('707070'),
-                          ),
-                          fontSize: 12,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ImageIcon(
-                        AssetImage(
-                          'assets/icons/Group 445@1X.png',
-                        ),
-                        size: 10,
-                      ),
-                    ],
-                  ),
-                ),
+                TapThaeCard(),
                 PlasamaRequest(),
               ],
             ),

@@ -12,7 +12,7 @@ import 'package:hmo/view/contact/contact.dart';
 import 'package:hmo/view/emergancy/emargancy.dart';
 import 'package:hmo/view/home/home.dart';
 import 'package:hmo/view/home/homescreen.dart';
-import 'package:hmo/view/home/screen_section/safezone/blood.dart';
+import 'package:hmo/view/home/screen_section/safezone/blood/blood.dart';
 import 'package:hmo/widget/drawer/components/profile/profile.dart';
 import 'package:hmo/widget/drawer/drawer.dart';
 
