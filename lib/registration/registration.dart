@@ -150,6 +150,7 @@ class _RegistrationState extends State<Registration> {
                                       },
                                       icon: Icon(
                                         Icons.calendar_today,
+                                        size: 20,
                                         color: Colors.grey,
                                       )),
                                 ),

@@ -4,11 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/utils/snackber.dart';
-import 'package:hmo/view/home/screen_section/safezone/blood/bdonated.dart';
-import 'package:hmo/view/home/screen_section/safezone/blood/bmyrequest.dart';
-
-import 'package:hmo/view/home/screen_section/safezone/blood/brequest.dart';
 import 'package:hmo/view/home/screen_section/safezone/plasama/pdonated.dart';
+import 'package:hmo/view/home/screen_section/safezone/plasama/plasamahistorys.dart';
 import 'package:hmo/view/home/screen_section/safezone/plasama/pmyrequest.dart';
 import 'package:hmo/view/home/screen_section/safezone/plasama/prequest.dart';
 import 'package:hmo/view/home/screen_section/safezone/slectedfield/bloodgroup.dart';
@@ -180,7 +177,12 @@ class _PlosamapageState extends State<Plosamapage> {
                 ButtonWidget(
                   padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
                   buttonname: 'Plasma History',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VPlasamaHestory()));
+                  },
                 ),
               ],
             ),

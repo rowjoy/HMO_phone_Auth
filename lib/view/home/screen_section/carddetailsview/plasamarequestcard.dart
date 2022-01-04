@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_string_interpolations, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
@@ -110,14 +110,35 @@ class _PlasamacardState extends State<Plasamacard> {
                     SizedBox(
                       height: 6,
                     ),
-                    Text(
-                      widget.location,
-                      maxLines: 1,
-                      softWrap: false,
-                      overflow: TextOverflow.fade,
-                      style: TextStyle(
-                        color: Color(COLOR.coustomColors('#707070')),
-                        fontSize: 14,
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Icon(
+                              Icons.location_on,
+                              size: 15,
+                              color: Color(
+                                COLOR.coustomColors('#707070'),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 1 / 1.5,
+                            child: Text(
+                              '${widget.location}',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color(COLOR.coustomColors('#707070')),
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
