@@ -24,5 +24,27 @@ List selectlocation = [
   "Plasma"
 ];
 
-//Date Picker section
+//blood/plasama Date Picker section
 var selectdate;
+
+//Medical issues selected
+var issuesitem = 0;
+List madicalissues = [
+  "Any medical issues?",
+  "Yes",
+  "No",
+];
+
+//Last donation date Blood registration
+var lastdonationdate;
+
+enum bloodgrup {
+  o,
+  a,
+  b,
+  c,
+  d,
+  e,
+  f,
+  g,
+}

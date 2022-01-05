@@ -13,7 +13,10 @@ import 'package:hmo/view/emergancy/emargancy.dart';
 import 'package:hmo/view/home/home.dart';
 import 'package:hmo/view/home/homescreen.dart';
 import 'package:hmo/view/home/screen_section/safezone/blood/blood.dart';
+import 'package:hmo/view/home/screen_section/safezone/plasama/plasama.dart';
 import 'package:hmo/widget/drawer/components/profile/profile.dart';
+import 'package:hmo/widget/drawer/components/safezone/safezons.dart';
+import 'package:hmo/widget/drawer/components/settings/setting.dart';
 import 'package:hmo/widget/drawer/drawer.dart';
 
 void main() {
@@ -44,9 +47,12 @@ class MyApp extends StatelessWidget {
         Homepage.path: (context) => Homepage(),
         Contactpage.path: (context) => Contactpage(),
         Emargancypage.path: (context) => Emargancypage(),
-        Profilepage.path: (context) => Profilepage(),
-        HomeDrawer.path: (context) => HomeDrawer(),
         Bloodpage.path: (context) => Bloodpage(),
+        Plosamapage.path: (context) => Plosamapage(),
+        HomeDrawer.path: (context) => HomeDrawer(),
+        Profilepage.path: (context) => Profilepage(),
+        Settingpage.path: (context) => Settingpage(),
+        Sefezons.path: (context) => Sefezons(),
       },
     );
   }

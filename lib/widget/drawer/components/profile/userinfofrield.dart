@@ -19,6 +19,7 @@ class Userinfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         // ignore: prefer_const_literals_to_create_immutables
@@ -40,7 +41,7 @@ class Userinfo extends StatelessWidget {
                 const EdgeInsets.only(bottom: 5, top: 3, left: 10, right: 10),
             child: ListTile(
               onLongPress: onLongPress,
-              visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+              visualDensity: VisualDensity(horizontal: 0, vertical: -2),
               title: Text(
                 userdata!,
                 style: TextStyle(

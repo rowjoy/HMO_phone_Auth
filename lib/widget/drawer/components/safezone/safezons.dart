@@ -7,6 +7,7 @@ import 'package:hmo/widget/drawer/components/safezone/addsafezon.dart';
 import 'package:hmo/widget/drawer/components/safezone/locationinfo.dart';
 
 class Sefezons extends StatefulWidget {
+  static const String path = "Safezoneadd";
   const Sefezons({Key? key}) : super(key: key);
 
   @override

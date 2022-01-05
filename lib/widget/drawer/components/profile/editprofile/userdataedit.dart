@@ -9,8 +9,12 @@ import 'package:hmo/widget/from_field.dart';
 class UserdataEdit extends StatefulWidget {
   final String? frielname;
   final String? frielddata;
-  const UserdataEdit({Key? key, this.frielname, this.frielddata})
-      : super(key: key);
+
+  const UserdataEdit({
+    Key? key,
+    this.frielname,
+    this.frielddata,
+  }) : super(key: key);
 
   @override
   _UserdataEditState createState() => _UserdataEditState();
@@ -51,6 +55,7 @@ class _UserdataEditState extends State<UserdataEdit> {
                         ),
                       ),
                       TextFromFields(
+                        keyboardType: TextInputType.number,
                         controller: editcontroller,
                         hintText: widget.frielddata!,
                       ),
