@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:hmo/bank/bloodbank/selectedbloodgroup.dart';
 import 'package:hmo/bank/bloodbank/selecteddivision.dart';
+import 'package:hmo/bank/plasamabank/pselecteddivision.dart';
+import 'package:hmo/bank/plasamabank/pseletedbloodgroup.dart';
 import 'package:hmo/utils/colors.dart';
 
 class BloodBank extends StatefulWidget {
@@ -27,7 +29,7 @@ class _BloodBankState extends State<BloodBank> {
               color: Colors.black,
             )),
         title: Text(
-          'HMO Blood Donors',
+          'HMO Plasma Donors',
           style: TextStyle(color: Color(COLOR.coustomColors('#303030'))),
         ),
         backgroundColor: Colors.white,
@@ -46,8 +48,8 @@ class _BloodBankState extends State<BloodBank> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    SelectBloodGroup(),
-                    SelectDivision(),
+                    PSelectBloodGroup(),
+                    PSelectDivision(),
                   ],
                 ),
               ),
