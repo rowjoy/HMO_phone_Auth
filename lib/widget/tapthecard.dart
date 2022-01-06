@@ -29,13 +29,12 @@ class _TapThaeCardState extends State<TapThaeCard> {
             ),
           ),
           SizedBox(
-            width: 10,
+            width: 8,
           ),
-          ImageIcon(
-            AssetImage(
-              'assets/icons/Group 445@1X.png',
-            ),
-            size: 10,
+          Image.asset(
+            'assets/images/Group 445@1X.png',
+            height: 10,
+            width: 10,
           ),
         ],
       ),

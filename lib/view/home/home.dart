@@ -90,12 +90,11 @@ class _HomepageState extends State<Homepage> {
                       SizedBox(
                         width: 10,
                       ),
-                      ImageIcon(
-                        AssetImage(
-                          'assets/icons/Group 445@1X.png',
-                        ),
-                        size: 10,
-                      ),
+                      Image.asset(
+                        'assets/images/Group 445@1X.png',
+                        height: 10,
+                        width: 10,
+                      )
                     ],
                   ),
                 ),
@@ -118,11 +117,10 @@ class _HomepageState extends State<Homepage> {
                       SizedBox(
                         width: 10,
                       ),
-                      ImageIcon(
-                        AssetImage(
-                          'assets/icons/Group 445@1X.png',
-                        ),
-                        size: 10,
+                      Image.asset(
+                        'assets/images/Group 445@1X.png',
+                        height: 10,
+                        width: 10,
                       ),
                     ],
                   ),

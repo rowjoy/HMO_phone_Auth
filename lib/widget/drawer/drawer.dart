@@ -5,6 +5,7 @@ import 'package:hmo/bank/bloodregistration/bloodregistration.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/widget/drawer/components/profile/profile.dart';
 import 'package:hmo/widget/drawer/components/safezone/safezons.dart';
+import 'package:hmo/widget/drawer/components/settings/setting.dart';
 import 'package:hmo/widget/drawer/listtilewidget.dart';
 
 class HomeDrawer extends StatefulWidget {
@@ -156,7 +157,10 @@ class _HomeDrawerState extends State<HomeDrawer> {
                 Drawerlisttile(
                   selected: false,
                   onLongPress: () {},
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Settingpage()));
+                  },
                   image: AssetImage('assets/icons/settings_black_24dp@1X.png'),
                   text: 'Settings',
                 ),

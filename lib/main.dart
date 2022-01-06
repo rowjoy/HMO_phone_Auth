@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, equal_keys_in_map
 
 import 'package:flutter/material.dart';
 
@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
         Profilepage.path: (context) => Profilepage(),
         Settingpage.path: (context) => Settingpage(),
         Sefezons.path: (context) => Sefezons(),
+        Settingpage.path: (context) => Settingpage(),
       },
     );
   }

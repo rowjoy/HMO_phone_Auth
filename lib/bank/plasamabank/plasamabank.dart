@@ -1,8 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:hmo/bank/bloodbank/selectedbloodgroup.dart';
-import 'package:hmo/bank/bloodbank/selecteddivision.dart';
 import 'package:hmo/bank/plasamabank/pselecteddivision.dart';
 import 'package:hmo/bank/plasamabank/pseletedbloodgroup.dart';
 import 'package:hmo/utils/colors.dart';

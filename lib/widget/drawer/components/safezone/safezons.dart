@@ -26,14 +26,27 @@ class _SefezonState extends State<Sefezons> {
         backgroundColor: Color(COLOR.coustomColors('#00B27A')),
         child: Icon(Icons.add),
       ),
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            )),
+        title: Text(
+          'Safe Zone',
+          style: TextStyle(color: Color(COLOR.coustomColors('#303030'))),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       backgroundColor: Colors.white,
       body: Container(
         margin: EdgeInsets.only(left: 10, right: 10),
         child: Column(
           children: [
-            Appbar(
-              text: 'Safe Zone',
-            ),
             Container(
               margin: EdgeInsets.only(top: 10),
               child: Column(
