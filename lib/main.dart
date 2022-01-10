@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, equal_keys_in_map
 
 import 'package:flutter/material.dart';
+import 'package:hmo/bank/bloodbank/bloodbank.dart';
+import 'package:hmo/bank/plasamabank/plasamabank.dart';
 
 import 'package:hmo/login/code.dart';
 import 'package:hmo/login/login.dart';
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       initialRoute: SplashScreen.path,
       routes: {
-        SplashScreen.path: (context) => SplashScreen(),
+        SplashScreen.path: (context) => SplashScreen(),   
         Loginpage.path: (context) => Loginpage(),
         Codepage.path: (context) => Codepage(),
         Registration.path: (context) => Registration(),
@@ -49,6 +51,8 @@ class MyApp extends StatelessWidget {
         Emargancypage.path: (context) => Emargancypage(),
         Bloodpage.path: (context) => Bloodpage(),
         Plosamapage.path: (context) => Plosamapage(),
+        BloodBank.path: (context) => BloodBank(),
+        PlasamaBank.path: (context) => PlasamaBank(),
         HomeDrawer.path: (context) => HomeDrawer(),
         Profilepage.path: (context) => Profilepage(),
         Settingpage.path: (context) => Settingpage(),

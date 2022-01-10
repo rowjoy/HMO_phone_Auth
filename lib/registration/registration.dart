@@ -4,8 +4,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hmo/bank/bloodregistration/bloodregistration.dart';
 import 'package:hmo/registration/chousechip.dart';
-import 'package:hmo/registration/contacts.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/utils/snackber.dart';
 import 'package:hmo/utils/varibales.dart';
@@ -287,7 +287,7 @@ class _RegistrationState extends State<Registration> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ContactsNumber()));
+                            builder: (context) => BloodRegistration()));
                   }
                 },
               )

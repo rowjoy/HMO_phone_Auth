@@ -6,6 +6,7 @@ import 'package:hmo/bank/bloodbank/selecteddivision.dart';
 import 'package:hmo/utils/colors.dart';
 
 class BloodBank extends StatefulWidget {
+  static const String path = 'Bloodbank';
   const BloodBank({Key? key}) : super(key: key);
 
   @override

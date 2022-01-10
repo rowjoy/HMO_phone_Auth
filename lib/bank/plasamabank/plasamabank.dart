@@ -5,14 +5,15 @@ import 'package:hmo/bank/plasamabank/pselecteddivision.dart';
 import 'package:hmo/bank/plasamabank/pseletedbloodgroup.dart';
 import 'package:hmo/utils/colors.dart';
 
-class BloodBank extends StatefulWidget {
-  const BloodBank({Key? key}) : super(key: key);
+class PlasamaBank extends StatefulWidget {
+  static const String path = "Plasamabank";
+  const PlasamaBank({Key? key}) : super(key: key);
 
   @override
   _BloodBankState createState() => _BloodBankState();
 }
 
-class _BloodBankState extends State<BloodBank> {
+class _BloodBankState extends State<PlasamaBank> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
