@@ -1,18 +1,22 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hmo/model/safezone.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/view/home/screen_section/helpmeout/helpland.dart';
 
-class NearestSafeZone extends StatefulWidget {
-  const NearestSafeZone({Key? key}) : super(key: key);
+class Emergencysinglepage extends StatefulWidget {
+  const Emergencysinglepage({Key? key}) : super(key: key);
 
   @override
   _NearestSafeZoneState createState() => _NearestSafeZoneState();
 }
 
-class _NearestSafeZoneState extends State<NearestSafeZone> {
+class _NearestSafeZoneState extends State<Emergencysinglepage> {
+  Completer<GoogleMapController> completer = Completer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +25,11 @@ class _NearestSafeZoneState extends State<NearestSafeZone> {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            color: Colors.blue,
+            child: GoogleMap(
+              mapType: MapType.normal,
+              initialCameraPosition: CameraPosition(
+                  target: LatLng(24.044712, 89.995997), zoom: 6.8),
+            ),
           ),
           Positioned(
             top: 50,

@@ -2,6 +2,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hmo/utils/colors.dart';
 
 class Safezoneslist extends StatefulWidget {
@@ -22,7 +23,11 @@ class _SafezoneState extends State<Safezoneslist> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: Colors.blue,
+            child: GoogleMap(
+              mapType: MapType.normal,
+              initialCameraPosition: CameraPosition(
+                  target: LatLng(24.044712, 89.995997), zoom: 6.8),
+            ),
           ),
           Positioned(
             top: 60,

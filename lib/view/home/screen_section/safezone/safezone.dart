@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:hmo/Map/activestatus.dart';
 import 'package:hmo/utils/colors.dart';
-import 'package:hmo/view/home/home_tab_section/nearest_safe_zone.dart';
+import 'package:hmo/Map/emergencysinglepage.dart';
 import 'package:hmo/view/home/screen_section/safezone/blood/blood.dart';
 import 'package:hmo/view/home/screen_section/safezone/plasama/plasama.dart';
-import 'package:hmo/view/home/screen_section/safezone/safezonelist.dart';
+import 'package:hmo/Map/safezonelist.dart';
 
 class Safezone extends StatelessWidget {
   const Safezone({
@@ -39,10 +40,14 @@ class Safezone extends StatelessWidget {
                         Color(COLOR.coustomColors('F6F6F6'))),
                   ),
                   onPressed: () {
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => Emergencysinglepage()));
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => NearestSafeZone()));
+                            builder: (context) => ActiveStatus()));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
