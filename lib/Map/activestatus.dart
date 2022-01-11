@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hmo/Map/tabpages/activehmo.dart';
 import 'package:hmo/Map/tabpages/hospital.dart';
 import 'package:hmo/Map/tabpages/police.dart';
@@ -20,11 +19,11 @@ class _ActiveStatusState extends State<ActiveStatus> {
   final String svgname = 'assets/svg/Hospital.svg';
   int indexnumber = 2;
   List tabpage = [
-    Hospitaltap(),
-    Varifidehmotab(),
-    Trustedtab(),
     Activehmotab(),
-    Policetab()
+    Varifidehmotab(),
+    Policetab(),
+    Hospitaltap(),
+    Trustedtab(),
   ];
   @override
   Widget build(BuildContext context) {

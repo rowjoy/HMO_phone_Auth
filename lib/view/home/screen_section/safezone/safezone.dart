@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hmo/Map/activestatus.dart';
 import 'package:hmo/utils/colors.dart';
-import 'package:hmo/Map/emergencysinglepage.dart';
+
 import 'package:hmo/view/home/screen_section/safezone/blood/blood.dart';
 import 'package:hmo/view/home/screen_section/safezone/plasama/plasama.dart';
 import 'package:hmo/Map/safezonelist.dart';
