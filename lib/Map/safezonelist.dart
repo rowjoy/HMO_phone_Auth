@@ -25,6 +25,7 @@ class _SafezoneState extends State<Safezoneslist> {
             height: MediaQuery.of(context).size.height,
             child: GoogleMap(
               mapType: MapType.normal,
+              zoomControlsEnabled: false,
               initialCameraPosition: CameraPosition(
                   target: LatLng(24.044712, 89.995997), zoom: 6.8),
             ),

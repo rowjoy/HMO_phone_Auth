@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:hmo/Map/contactdetiles.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/widget/drawer/components/profile/profile.dart';
 import 'package:hmo/widget/drawer/components/safezone/safezons.dart';
@@ -108,7 +109,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
                 Drawerlisttile(
                   selected: false,
                   onLongPress: () {},
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ContactDetiles()));
+                  },
                   image: AssetImage('assets/icons/contacts_black_24dp@1X.png'),
                   text: 'Trusted Contact',
                 ),

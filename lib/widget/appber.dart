@@ -5,9 +5,11 @@ import 'package:hmo/utils/colors.dart';
 
 class Appbar extends StatelessWidget {
   final String? text;
+  final Widget? trailing;
   const Appbar({
     Key? key,
     this.text,
+    this.trailing,
   }) : super(key: key);
 
   @override
@@ -40,6 +42,7 @@ class Appbar extends StatelessWidget {
             ),
           ),
         ),
+        trailing: trailing,
       ),
     );
   }
