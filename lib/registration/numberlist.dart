@@ -26,7 +26,7 @@ class Numberlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10, bottom: 5),
+      padding: const EdgeInsets.only(left: 10, right: 10, bottom: 8),
       child: ListTile(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),

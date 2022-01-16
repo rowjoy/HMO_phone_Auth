@@ -1,24 +1,25 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:hmo/bank/bloodregistration/bloodselectedchip.dart';
-import 'package:hmo/bank/bloodregistration/donatedate.dart';
-import 'package:hmo/bank/bloodregistration/madicalissues.dart';
-import 'package:hmo/registration/contacts.dart';
+import 'package:hmo/bank/donorregistration/bloodselectedchip.dart';
+import 'package:hmo/bank/donorregistration/donatedate.dart';
+import 'package:hmo/bank/donorregistration/madicalissues.dart';
+
 import 'package:hmo/utils/snackber.dart';
 import 'package:hmo/utils/varibales.dart';
+import 'package:hmo/view/home/screen_section/safezone/blood/blood.dart';
 import 'package:hmo/view/home/screen_section/safezone/slectedfield/utils.dart';
 import 'package:hmo/widget/appber.dart';
 import 'package:hmo/widget/button.dart';
 
-class BloodRegistration extends StatefulWidget {
-  const BloodRegistration({Key? key}) : super(key: key);
+class BloodDonorRegistration extends StatefulWidget {
+  const BloodDonorRegistration({Key? key}) : super(key: key);
 
   @override
   _BloodRegistrationState createState() => _BloodRegistrationState();
 }
 
-class _BloodRegistrationState extends State<BloodRegistration> {
+class _BloodRegistrationState extends State<BloodDonorRegistration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,10 +57,8 @@ class _BloodRegistrationState extends State<BloodRegistration> {
                   showsnckbers(context, 'Please selected Last donation date',
                       DismissDirection.down);
                 } else {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ContactsNumber()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Bloodpage()));
                 }
               },
             )

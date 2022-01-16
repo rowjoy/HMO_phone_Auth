@@ -12,6 +12,13 @@ class Policetab extends StatefulWidget {
 }
 
 class _PolicetabState extends State<Policetab> {
+  bool isloeding = false;
+  @override
+  void initState() {
+    isloeding = false;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +27,18 @@ class _PolicetabState extends State<Policetab> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: GoogleMap(
-              zoomControlsEnabled: false,
-              mapType: MapType.normal,
-              initialCameraPosition: CameraPosition(
-                  target: LatLng(24.044712, 89.995997), zoom: 6.8),
-            ),
+            child: isloeding
+                ? Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.black,
+                    ),
+                  )
+                : GoogleMap(
+                    zoomControlsEnabled: false,
+                    mapType: MapType.normal,
+                    initialCameraPosition: CameraPosition(
+                        target: LatLng(24.044712, 89.995997), zoom: 6.8),
+                  ),
           ),
           Positioned(
             left: 15,

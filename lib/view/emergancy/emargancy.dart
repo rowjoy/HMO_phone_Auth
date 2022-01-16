@@ -6,6 +6,7 @@ import 'package:hmo/registration/numberlist.dart';
 import 'package:hmo/utils/colors.dart';
 import 'package:hmo/view/emergancy/components/division.dart';
 import 'package:hmo/view/emergancy/components/service.dart';
+import 'package:hmo/view/emergancy/newemergencyadd.dart';
 import 'package:hmo/widget/drawer/drawer.dart';
 
 class Emargancypage extends StatefulWidget {
@@ -60,69 +61,10 @@ class _EmargancypageState extends State<Emargancypage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(COLOR.coustomColors('00B27A')),
         onPressed: () {
-          showModalBottomSheet(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              )),
-              context: context,
-              builder: (contex) {
-                return Container(
-                  height: 160,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 6,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            color: Color(COLOR.coustomColors('#DBDBDB')),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        ListTile(
-                          selected: false,
-                          tileColor: Color(COLOR.coustomColors('F6F6F6')),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          leading: Icon(Icons.phone),
-                          title: Text(
-                            'Call',
-                            style: TextStyle(
-                              fontSize: 17,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        ListTile(
-                          selected: false,
-                          tileColor: Color(COLOR.coustomColors('F6F6F6')),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          leading: Icon(Icons.comment),
-                          title: Text(
-                            'SMS',
-                            style: TextStyle(
-                              fontSize: 17,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              });
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => NewEmergencyadd()));
         },
-        child: Icon(Icons.phone),
+        child: Icon(Icons.add),
       ),
       backgroundColor: Colors.white,
       drawer: Drawer(
@@ -286,6 +228,77 @@ class _EmargancypageState extends State<Emargancypage> {
                         selected: false,
                         name: "${contactlist.displayName}",
                         number: "${contactlist.phones!.elementAt(0).value}",
+                        onTab: () {
+                          showModalBottomSheet(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              )),
+                              context: context,
+                              builder: (contex) {
+                                return Container(
+                                  height: 160,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 6,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                            color: Color(
+                                                COLOR.coustomColors('#DBDBDB')),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        ListTile(
+                                          selected: false,
+                                          onTap: () {},
+                                          tileColor: Color(
+                                              COLOR.coustomColors('F6F6F6')),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          leading: Icon(Icons.phone),
+                                          title: Text(
+                                            'Call',
+                                            style: TextStyle(
+                                              fontSize: 17,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        ListTile(
+                                          selected: false,
+                                          onTap: () {},
+                                          tileColor: Color(
+                                              COLOR.coustomColors('F6F6F6')),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          leading: Icon(Icons.comment),
+                                          title: Text(
+                                            'SMS',
+                                            style: TextStyle(
+                                              fontSize: 17,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              });
+                        },
                       );
                     },
                   ),

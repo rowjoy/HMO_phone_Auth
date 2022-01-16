@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:hmo/Map/activestatus.dart';
-import 'package:hmo/utils/colors.dart';
 
-import 'package:hmo/view/home/screen_section/safezone/blood/blood.dart';
-import 'package:hmo/view/home/screen_section/safezone/plasama/plasama.dart';
+import 'package:hmo/bank/donorsregistration/bdonorregistration.dart';
+import 'package:hmo/bank/donorsregistration/pdonorregistration.dart';
+import 'package:hmo/utils/colors.dart';
 import 'package:hmo/Map/safezonelist.dart';
 
 class Safezone extends StatelessWidget {
@@ -76,10 +76,8 @@ class Safezone extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Zonesection(
-                  image: 'assets/icons/police-badge-01@1X.png',
-                  zonename: 'Police Station',
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -87,11 +85,13 @@ class Safezone extends StatelessWidget {
                                   name: 'Police station',
                                 )));
                   },
+                  child: Zonesection(
+                    image: 'assets/icons/police-badge-01@1X.png',
+                    zonename: 'Police Station',
+                  ),
                 ),
-                Zonesection(
-                  image: 'assets/icons/hospital-01@1X.png',
-                  zonename: 'Hospital',
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -99,11 +99,13 @@ class Safezone extends StatelessWidget {
                                   name: 'Hospital',
                                 )));
                   },
+                  child: Zonesection(
+                    image: 'assets/icons/hospital-01@1X.png',
+                    zonename: 'Hospital',
+                  ),
                 ),
-                Zonesection(
-                  image: 'assets/icons/ambulance-01@1X.png',
-                  zonename: 'Ambulance',
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -111,6 +113,10 @@ class Safezone extends StatelessWidget {
                                   name: 'Ambulance',
                                 )));
                   },
+                  child: Zonesection(
+                    image: 'assets/icons/ambulance-01@1X.png',
+                    zonename: 'Ambulance',
+                  ),
                 ),
               ],
             ),
@@ -120,10 +126,8 @@ class Safezone extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Zonesection(
-                  image: 'assets/icons/fire-truck-01@1X.png',
-                  zonename: 'Fire Station',
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -131,22 +135,34 @@ class Safezone extends StatelessWidget {
                                   name: 'Fire Station',
                                 )));
                   },
+                  child: Zonesection(
+                    image: 'assets/icons/fire-truck-01@1X.png',
+                    zonename: 'Fire Station',
+                  ),
                 ),
-                Zonesection(
-                  image: 'assets/icons/blood-donation-01@1X.png',
-                  zonename: 'Blood',
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Bloodpage()));
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BloodDonorRegistration()));
                   },
+                  child: Zonesection(
+                    image: 'assets/icons/blood-donation-01@1X.png',
+                    zonename: 'Blood',
+                  ),
                 ),
-                Zonesection(
-                  image: 'assets/icons/Plazma-01@1X.png',
-                  zonename: 'Plasma',
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Plosamapage()));
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PlasamadonorRegistration()));
                   },
+                  child: Zonesection(
+                    image: 'assets/icons/Plazma-01@1X.png',
+                    zonename: 'Plasma',
+                  ),
                 ),
               ],
             ),
@@ -160,12 +176,11 @@ class Safezone extends StatelessWidget {
 class Zonesection extends StatelessWidget {
   final String? image;
   final String? zonename;
-  final void Function()? onPressed;
+
   const Zonesection({
     Key? key,
     this.image,
     this.zonename,
-    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -189,18 +204,14 @@ class Zonesection extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 5, right: 5),
-              child: SizedBox(
+              child: Container(
                 height: 28,
                 width: MediaQuery.of(context).size.width,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                      Color(
-                        COLOR.coustomColors('#FFFFFF'),
-                      ),
-                    ),
-                  ),
-                  onPressed: onPressed,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
+                child: Center(
                   child: Text(
                     zonename!,
                     style: TextStyle(

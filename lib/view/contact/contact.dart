@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:hmo/utils/colors.dart';
+import 'package:hmo/view/contact/contactdetails.dart';
 import 'package:hmo/view/contact/newcontactadd.dart';
 import 'package:hmo/widget/drawer/drawer.dart';
 
@@ -63,9 +64,75 @@ class _ContactpageState extends State<Contactpage> {
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
                   selected: resknumber,
-                  onLongPress: () {
-                    setState(() {});
+                  onTap: () {
+                    showModalBottomSheet(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                        )),
+                        context: context,
+                        builder: (contex) {
+                          return Container(
+                            height: 160,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 6,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          Color(COLOR.coustomColors('#DBDBDB')),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  ListTile(
+                                    selected: false,
+                                    onTap: () {},
+                                    tileColor:
+                                        Color(COLOR.coustomColors('F6F6F6')),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    leading: Icon(Icons.phone),
+                                    title: Text(
+                                      'Call',
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  ListTile(
+                                    selected: false,
+                                    onTap: () {},
+                                    tileColor:
+                                        Color(COLOR.coustomColors('F6F6F6')),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    leading: Icon(Icons.comment),
+                                    title: Text(
+                                      'SMS',
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        });
                   },
+                  onLongPress: () {},
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -107,7 +174,12 @@ class _ContactpageState extends State<Contactpage> {
                     ],
                   ),
                   trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ContactDetails()));
+                      },
                       icon: Icon(Icons.arrow_forward_ios_outlined)),
                 ),
               );
