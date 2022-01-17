@@ -40,7 +40,7 @@ class _ActiveStatusState extends State<ActiveStatus> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   maptabview(
                       0, context, 'Active HMO', 'assets/svg/Active HMO.png'),
@@ -67,7 +67,7 @@ class _ActiveStatusState extends State<ActiveStatus> {
         });
       },
       child: Container(
-        height: 65,
+        height: MediaQuery.of(context).size.height * 1 / 9.6,
         width: MediaQuery.of(context).size.width * 1 / 5.4,
         decoration: BoxDecoration(
           color: Colors.white,

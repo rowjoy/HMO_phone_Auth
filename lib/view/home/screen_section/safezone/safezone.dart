@@ -18,7 +18,6 @@ class Safezone extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 25, left: 15, right: 15),
       width: MediaQuery.of(context).size.width,
-      height: 320,
       decoration: BoxDecoration(
         boxShadow: kElevationToShadow[4],
         color: Colors.white,
@@ -122,7 +121,7 @@ class Safezone extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 10, right: 10, top: 20),
+            margin: EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -186,7 +185,6 @@ class Zonesection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
       width: MediaQuery.of(context).size.width * 1 / 4,
       decoration: BoxDecoration(
         color: Color(
@@ -195,36 +193,41 @@ class Zonesection extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            AspectRatio(
-              aspectRatio: 1.5,
-              child: Image.asset(image!),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 5, right: 5),
-              child: Container(
-                height: 28,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              AspectRatio(
+                aspectRatio: 1.5,
+                child: Image.asset(image!),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 5,
                 ),
-                child: Center(
-                  child: Text(
-                    zonename!,
-                    style: TextStyle(
-                      fontSize: 7,
-                      color: Color(
-                        COLOR.coustomColors('00B27A'),
+                child: Container(
+                  height: 28,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: Text(
+                      zonename!,
+                      style: TextStyle(
+                        fontSize: 7,
+                        color: Color(
+                          COLOR.coustomColors('00B27A'),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
